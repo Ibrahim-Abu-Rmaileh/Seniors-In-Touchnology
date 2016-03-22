@@ -8,7 +8,7 @@ As well as developing contacts with graduates and expanding sphere of influence 
 ## Please visit our [live application](http://seniorsintouchnology.azurewebsites.net/)
 - Alright, currently only a landing page...
 
-[![Join the chat at https://gitter.im/matanan/MACHSAVA-TOVA](https://badges.gitter.im/matanan/MACHSAVA-TOVA.svg)](https://gitter.im/matanan/MACHSAVA-TOVA?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+[![Join the chat at https://gitter.im/afek590/Seniors-In-Touchnology](https://badges.gitter.im/afek590/Seniors-In-Touchnology.svg)](https://gitter.im/afek590/Seniors-In-Touchnology?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 ## [Issue Board](https://huboard.com/robi-y/seproject-team-template#/)
 
