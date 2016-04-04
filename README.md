@@ -10,7 +10,7 @@ As well as developing contacts with graduates and expanding sphere of influence 
 
 [![Join the chat at https://gitter.im/afek590/Seniors-In-Touchnology](https://badges.gitter.im/afek590/Seniors-In-Touchnology.svg)](https://gitter.im/afek590/Seniors-In-Touchnology?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
-## [Issue Board](https://huboard.com/robi-y/seproject-team-template#/)
+## [Issue Board](https://huboard.com/afek590/Seniors-In-Touchnology)
 
 ## Disclaimer
 This project is developed as part of the requirements for a [software engineering course](https://github.com/jce-il/se-class/wiki) at the software engineering department - [Azrieli College of Engineering](http://www.jce.ac.il/), Jerusalem, Israel.
