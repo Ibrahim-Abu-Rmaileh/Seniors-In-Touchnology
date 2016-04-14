@@ -3,5 +3,12 @@
  */
 (function(){
     var app = angular.module('SIT', []);
+
+    app.controller('MainController', function(){
+       this.signIn = function()
+       {
+         // google id
+       };
+    });
 })();
 
