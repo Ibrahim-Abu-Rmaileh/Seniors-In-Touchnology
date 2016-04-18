@@ -15,7 +15,7 @@ var MYLIBRARY = MYLIBRARY || (function(){
 
     app.controller('MainController', ['$scope', '$window', function($scope, $window) {
         
-        alert($window.MYLIBRARY.manager);
+        alert($window.MYLIBRARY.manager == true);
         
         this.signIn = function()
         {
