@@ -15,13 +15,14 @@ var MYLIBRARY = MYLIBRARY || (function(){
 
     app.controller('MainController', ['$scope', '$window', function($scope, $window) {
         
+        alert($window.MYLIBRARY.manager);
+        
         this.signIn = function()
         {
             // google id
         };
         
         this.isManager = function(){
-            alert("Show is: " + $window.MYLIBRARY.isManager());
             return $window.MYLIBRARY.isManager();
         };
 }])})();
