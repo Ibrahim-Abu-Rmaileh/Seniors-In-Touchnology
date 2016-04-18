@@ -25,8 +25,7 @@ var MANAGER;
     .when('/panel',{
         controller: 'MainController',
         controllerAs: 'main',
-        templateUrl: 'views/panel.html'})
-          });
+        templateUrl: 'views/panel.html'});
     }]);
 
     app.controller('MainController', ['$scope', '$window', function($scope, $window) {
