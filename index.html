@@ -22,8 +22,8 @@
             // The ID token you need to pass to your backend:
             var id_token = googleUser.getAuthResponse().id_token;
             console.log("ID Token: " + id_token);
-            alert("Logged In");
             MYLIBRARY.init(true);
+            alert(MYLIBRARY.isManager());
           };
         </script>
         <script>
@@ -32,6 +32,7 @@
                 auth2.signOut().then(function () {
                     MYLIBRARY.init(false);
                     console.log('User signed out.');
+                    alert(MYLIBRARY.isManager());
                 });
             }
         </script>
@@ -43,7 +44,7 @@
         </div>
         <a href="#" onclick="signOut();">Sign out</a>
         
-        <div ng-show="$main.isManager()">
+        <div ng-show="main.isManager()">
             <a href="views/panel.html">Management Panel</a>
         </div>
         
