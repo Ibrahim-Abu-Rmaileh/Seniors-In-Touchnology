@@ -22,8 +22,8 @@ var MYLIBRARY = MYLIBRARY || (function(){
         };
         
         this.isManager = function(){
-            alert("In the controller is " + $window.MYLIBRARY.isManager())
-            return $window.MYLIBRARY.isManager();
+            alert("In the controller is " + $window.MYLIBRARY.manager);
+            return $window.MYLIBRARY.manager;
         };
 }])})();
 
