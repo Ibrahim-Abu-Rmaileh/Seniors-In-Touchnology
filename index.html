@@ -24,6 +24,7 @@
             console.log("ID Token: " + id_token);
             alert("Logged In");
             MYLIBRARY.init(true);
+            alert(MYLIBRARY.isManager);
           };
         </script>
         <script>
@@ -32,6 +33,7 @@
                 auth2.signOut().then(function () {
                     MYLIBRARY.init(false);
                     console.log('User signed out.');
+                    alert(MYLIBRARY.isManager);
                 });
             }
         </script>
