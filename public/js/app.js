@@ -23,7 +23,7 @@ var MANAGER;
             // google id
         };
         
-        $window.isScreen = function(num){
+        this.isScreen = function(num){
             return MANAGER == num;
         };
         
