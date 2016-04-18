@@ -1,15 +1,14 @@
-var MYLIBRARY = MYLIBRARY || (function($scope){
-       $scope.manager = false;
-        
-        return{
-            init: function(Args){
-                $scope.manager = Args;
-            },
-            isManager: function(){
-                return $scope.manager;
-            }
-        };
-    }());
+var MYLIBRARY = MYLIBRARY || (function(){
+    this.manager = false;
+    return{
+        init: function(Args){
+            this.manager = Args;
+        },
+        isManager: function(){
+            return this.manager;
+        }
+    };
+}());
 
 (function(){
     var app = angular.module('SIT', []);
@@ -22,8 +21,8 @@ var MYLIBRARY = MYLIBRARY || (function($scope){
         };
         
         this.isManager = function(){
-            alert("show is " + $scope.manager);
-            return $scope.manager;
+            alert("show is " + MYLIBRARY.isManager());
+            return MYLIBRARY.isManager();
         };
     });
 })();
