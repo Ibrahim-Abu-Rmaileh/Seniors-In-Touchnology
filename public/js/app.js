@@ -24,5 +24,5 @@ var MYLIBRARY = MYLIBRARY || (function(){
             alert("Show is: " + $window.MYLIBRARY.isManager());
             return $window.MYLIBRARY.isManager();
         };
-}])();
+}])})();
 
