@@ -22,6 +22,7 @@ var MYLIBRARY = MYLIBRARY || (function(){
         };
         
         this.isManager = function(){
+            alert("show is " + MYLIBRARY.isManager());
             return MYLIBRARY.isManager();
         };
     });
