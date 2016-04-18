@@ -20,6 +20,10 @@ var MYLIBRARY = MYLIBRARY || (function(){
         {
             // google id
         };
+        
+        this.isManager = function(){
+            return MYLIBRARY.isManager();
+        };
     });
 })();
 
