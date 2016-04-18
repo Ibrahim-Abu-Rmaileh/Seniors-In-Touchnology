@@ -17,13 +17,17 @@ var MANAGER;
     var app = angular.module('SIT', []);
 
     app.controller('MainController', ['$scope', '$window', function($scope, $window) {
-        $window.MANAGER = false;
+        MANAGAR = false;
         this.signIn = function()
         {
             // google id
         };
         
-        this.isManager = function(){
-            return $window.MANAGER;
+        this.isScreen = function(num){
+            return MANAGAR == num;
+        };
+        
+        this.setScreen = function(num){
+            MANAGAR = num;
         };
 }])})();
