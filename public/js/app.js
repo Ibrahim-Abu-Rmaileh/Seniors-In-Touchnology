@@ -1,12 +1,12 @@
-var MYLIBRARY = MYLIBRARY || (function(){
-       this.manager = false;
+var MYLIBRARY = MYLIBRARY || (function($scope){
+       $scope.manager = false;
         
         return{
             init: function(Args){
-                this.manager = Args;
+                $scope.manager = Args;
             },
             isManager: function(){
-                return this.manager;
+                return $scope.manager;
             }
         };
     }());
@@ -22,8 +22,8 @@ var MYLIBRARY = MYLIBRARY || (function(){
         };
         
         this.isManager = function(){
-            alert("show is " + MYLIBRARY.isManager());
-            return MYLIBRARY.isManager();
+            alert("show is " + $scope.manager);
+            return $scope.manager;
         };
     });
 })();
