@@ -1,6 +1,12 @@
 /**
  * Created by tal on 18/04/2016.
  */
+var jobs = angular.module('jobs', []);
+
+jobs.controller("offerController", function(){
+
+});
+
 
 // defining the mongodb using mongoose
 var mongoose = require('mongoose');
@@ -46,3 +52,4 @@ job1.save(function (err, job1) {
         return console.error(err);
     console.log('saved');
 })
+
