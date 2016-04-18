@@ -11,9 +11,7 @@ var MYLIBRARY = MYLIBRARY || (function(){
             return MANAGER;
         }
     };
-}());
-
-(function(){
+    
     var app = angular.module('SIT', []);
 
     app.controller('MainController', ['$scope', '$window', function($scope, $window) {
@@ -27,5 +25,6 @@ var MYLIBRARY = MYLIBRARY || (function(){
             alert("In the controller is " + $window.MANAGER);
             return $window.MANAGER;
         };
-}])})();
+}]);
+}());
 
