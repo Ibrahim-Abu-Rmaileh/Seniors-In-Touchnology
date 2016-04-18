@@ -24,7 +24,6 @@ var MANAGER = false;
         };
         
         this.isManager = function(){
-            alert("In the controller is " + $window.MANAGER);
             return $window.MANAGER;
         };
 }])})();
