@@ -23,11 +23,11 @@ var MANAGER;
             // google id
         };
         
-        this.isScreen = function(num){
+        $window.isScreen = function(num){
             return MANAGAR == num;
         };
         
-        this.setScreen = function(num){
+        $window.setScreen = function(num){
             MANAGAR = num;
         };
 }])})();
