@@ -24,10 +24,10 @@ var MANAGER;
         };
         
         $window.isScreen = function(num){
-            return MANAGAR == num;
+            return MANAGER == num;
         };
         
         $window.setScreen = function(num){
-            MANAGAR = num;
+            MANAGER = num;
         };
 }])})();
