@@ -5,10 +5,16 @@
     var app = angular.module('SIT', []);
 
     app.controller('MainController', function(){
-       this.signIn = function()
-       {
-         // google id
-       };
+        this.manager = false;
+        
+        this.signIn = function()
+        {
+            // google id
+        };
+        
+        this.isManager = function(){
+            return this.manager;
+        }
     });
 })();
 
