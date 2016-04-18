@@ -1,4 +1,4 @@
-var MANAGER = false;
+var MANAGER;
 
 /*var MYLIBRARY = MYLIBRARY || (function(){
     
@@ -17,7 +17,7 @@ var MANAGER = false;
     var app = angular.module('SIT', []);
 
     app.controller('MainController', ['$scope', '$window', function($scope, $window) {
-        
+        $window.MANAGER = false;
         this.signIn = function()
         {
             // google id
