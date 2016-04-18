@@ -3,9 +3,9 @@ var MYLIBRARY = MYLIBRARY || (function(){
     return{
         init: function(Args){
             this.manager = Args;
-            alert("This manager is now " + this.manager);
         },
         isManager: function(){
+            alert("This manager is now " + this.manager);
             return this.manager;
         }
     };
@@ -22,6 +22,7 @@ var MYLIBRARY = MYLIBRARY || (function(){
         };
         
         this.isManager = function(){
+            alert("In the controller is " + $window.MYLIBRARY.isManager())
             return $window.MYLIBRARY.isManager();
         };
 }])})();
