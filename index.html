@@ -8,9 +8,7 @@
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="1059144044451-8al7ptnkope51hsjs7maglj6knu8jif4.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-</head>
-    <body ng-controller="MainController as main">
-        <script>
+    <script>
             function onSignIn(googleUser) {
                 // Useful data for your client-side scripts:
             var profile = googleUser.getBasicProfile();
@@ -37,6 +35,8 @@
                 });
             }
         </script>
+</head>
+    <body ng-controller="MainController as main">
         
         <div class="g-signin2" data-onsuccess="onSignIn">
             Google Div
