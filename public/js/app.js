@@ -1,10 +1,4 @@
-/**
- * Created by DorianTs on 14/04/2016.
- */
-(function(){
-    var app = angular.module('SIT', []);
-    
-    var MYLIBRARY = MYLIBRARY || (function(){
+var MYLIBRARY = MYLIBRARY || (function(){
        var manager = false;
         
         return{
@@ -16,6 +10,9 @@
             }
         };
     });
+
+(function(){
+    var app = angular.module('SIT', []);
 
     app.controller('MainController', function($scope){
         
