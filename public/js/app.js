@@ -3,19 +3,26 @@
  */
 (function(){
     var app = angular.module('SIT', []);
+    
+    var MYLIBRARY = MYLIBRARY || (function(){
+       var manager = false;
+        
+        return{
+            init: function(Args){
+                manager = Args;
+            },
+            isManager: function(){
+                return manager;
+            }
+        };
+    });
 
     app.controller('MainController', function($scope){
-        $scope.manager = false;
         
         this.signIn = function()
         {
             // google id
         };
-        
-        this.isManager = function(){
-            alert("Manage is" + $scope.manager);
-            return $scope.manager;
-        }
     });
 })();
 
