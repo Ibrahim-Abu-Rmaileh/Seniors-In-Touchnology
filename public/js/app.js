@@ -3,6 +3,7 @@ var MYLIBRARY = MYLIBRARY || (function(){
     return{
         init: function(Args){
             this.manager = Args;
+            alert("This manager is now " + this.manager);
         },
         isManager: function(){
             return this.manager;
@@ -14,8 +15,6 @@ var MYLIBRARY = MYLIBRARY || (function(){
     var app = angular.module('SIT', []);
 
     app.controller('MainController', ['$scope', '$window', function($scope, $window) {
-        
-        alert($window.MYLIBRARY.manager == true);
         
         this.signIn = function()
         {
