@@ -5,7 +5,7 @@
     var app = angular.module('SIT', []);
 
     app.controller('MainController', function(){
-        this.manager = false;
+        $scope.manager = false;
         
         this.signIn = function()
         {
@@ -13,7 +13,7 @@
         };
         
         this.isManager = function(){
-            return this.manager;
+            return $scope.manager;
         }
     });
 })();
