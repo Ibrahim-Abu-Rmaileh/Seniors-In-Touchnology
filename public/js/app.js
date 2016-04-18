@@ -1,6 +1,6 @@
 var MANAGER = false;
 
-var MYLIBRARY = MYLIBRARY || (function(){
+/*var MYLIBRARY = MYLIBRARY || (function(){
     
     return{
         init: function(Args){
@@ -11,7 +11,9 @@ var MYLIBRARY = MYLIBRARY || (function(){
             return MANAGER;
         }
     };
-    
+}());*/
+
+(function(){
     var app = angular.module('SIT', []);
 
     app.controller('MainController', ['$scope', '$window', function($scope, $window) {
@@ -25,6 +27,4 @@ var MYLIBRARY = MYLIBRARY || (function(){
             alert("In the controller is " + $window.MANAGER);
             return $window.MANAGER;
         };
-}]);
-}());
-
+}])})();
