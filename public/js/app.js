@@ -13,6 +13,7 @@
         };
         
         this.isManager = function(){
+            alert("Manage is" + $scope.manager);
             return $scope.manager;
         }
     });
