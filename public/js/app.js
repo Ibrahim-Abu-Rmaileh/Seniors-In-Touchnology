@@ -1,12 +1,12 @@
 var MYLIBRARY = MYLIBRARY || (function(){
-       var manager = false;
+       var this.manager = false;
         
         return{
             init: function(Args){
-                manager = Args;
+                this.manager = Args;
             },
             isManager: function(){
-                return manager;
+                return this.manager;
             }
         };
     }());
