@@ -1,5 +1,5 @@
 var MYLIBRARY = MYLIBRARY || (function(){
-       var this.manager = false;
+       this.manager = false;
         
         return{
             init: function(Args){
