@@ -13,7 +13,7 @@ var MYLIBRARY = MYLIBRARY || (function(){
 (function(){
     var app = angular.module('SIT', []);
 
-    app.controller('MainController', function($scope){
+    app.controller('MainController', ['$scope', '$window', function($scope, $window) {
         
         this.signIn = function()
         {
@@ -21,8 +21,8 @@ var MYLIBRARY = MYLIBRARY || (function(){
         };
         
         this.isManager = function(){
-            alert("show is " + MYLIBRARY.isManager());
-            return MYLIBRARY.isManager();
+            alert("Show is: " + $window.MYLIBRARY.isManager());
+            return $window.MYLIBRARY.isManager();
         };
     });
 })();
