@@ -1,4 +1,7 @@
-var MYLIBRARY = MYLIBRARY || (function(){
+
+
+(function(){
+    var MYLIBRARY = MYLIBRARY || (function(){
        this.manager = false;
         
         return{
@@ -10,8 +13,7 @@ var MYLIBRARY = MYLIBRARY || (function(){
             }
         };
     }());
-
-(function(){
+    
     var app = angular.module('SIT', []);
 
     app.controller('MainController', function($scope){
