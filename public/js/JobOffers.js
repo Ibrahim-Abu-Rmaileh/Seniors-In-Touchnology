@@ -4,6 +4,14 @@
 var jobs = angular.module('jobs', []);
 
 jobs.controller("offerController", function(){
+    this.offers = {};
+    Offer.find({}, function (err, offers) {
+        if(err)
+        {
+            /*error!!!*/
+        }
+    this.offers = offers;
+    });
 
 });
 
