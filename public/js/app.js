@@ -4,7 +4,7 @@
 (function(){
     var app = angular.module('SIT', []);
 
-    app.controller('MainController', function(){
+    app.controller('MainController', function($scope){
         $scope.manager = false;
         
         this.signIn = function()
