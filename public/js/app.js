@@ -9,7 +9,7 @@ var MYLIBRARY = MYLIBRARY || (function(){
                 return manager;
             }
         };
-    });
+    }());
 
 (function(){
     var app = angular.module('SIT', []);
