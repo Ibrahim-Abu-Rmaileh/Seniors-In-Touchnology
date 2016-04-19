@@ -36,5 +36,11 @@ var LOGIN = false;
     app.controller('PanelController', function(){
         if(LOGIN == false)
             window.location.href = "#/";
+        this.email = "";
+        
+        this.addManager = function(){
+            MANAGERS.push(this.email);
+            this.email = "";
+        };
     });
 })();

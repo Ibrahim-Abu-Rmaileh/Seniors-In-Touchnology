@@ -5,5 +5,9 @@
 	</head>
 	<body>
 		This is management panel.
+        <input type="email" ng-model="panel.email"> <button id="submit" ng-click="panel.addManager()">Add</button>
+        <div id="managers" ng-repeat="manager in MANAGERS">
+            {{manager}}
+        </div>
 	</body>
 </html>
