@@ -5,9 +5,13 @@
         <link a href="public/css/style.css" rel="stylesheet" />
         <script src="public/js/angular.min.js" type="text/javascript"></script>
         <script src="public/js/angular-route.min.js" type="text/javascript"></script>
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="1059144044451-8al7ptnkope51hsjs7maglj6knu8jif4.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="public/js/app.js" type="text/javascript"></script>
     </head>
-    <body ng-controller="MainController as main">
+    <body>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
         <div ng-view></div>
     </body>
 </html>
