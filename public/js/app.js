@@ -1,4 +1,5 @@
 var MANAGERS = ["afek590@gmail.com", "someone@gmail.com"];
+var LOGIN = false;
 
 /*var MYLIBRARY = MYLIBRARY || (function(){
     
@@ -23,12 +24,17 @@ var MANAGERS = ["afek590@gmail.com", "someone@gmail.com"];
         controllerAs: 'main',
         templateUrl: 'views/main.html'})
     .when('/panel',{
-        controller: 'MainController',
-        controllerAs: 'main',
+        controller: 'PanelController',
+        controllerAs: 'panel',
         templateUrl: 'views/panel.html'});
     }]);
 
-    app.controller('MainController', ['$scope', '$window', function($scope, $window) {
-        MANAGAR = false;
+    app.controller('MainController', function(){
         
-}])})();
+    });
+    
+    app.controller('PanelController', function(){
+        if(LOGIN == false)
+            window.location.href = "#/";
+    });
+})();

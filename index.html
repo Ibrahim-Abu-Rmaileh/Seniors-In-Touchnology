@@ -26,9 +26,15 @@
                 var id_token = googleUser.getAuthResponse().id_token;
                 console.log("ID Token: " + id_token);
                 if(MANAGERS.indexOf(profile.getEmail()) > -1)
-                    window.location.href= "#panel";
+                    {
+                        LOGIN = true;
+                        window.location.href= "#panel";
+                    }
                 else
-                    signOut();
+                    {
+                        LOGIN = false;
+                        signOut();
+                    }
 
               };
         </script>
