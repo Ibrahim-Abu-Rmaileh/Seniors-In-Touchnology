@@ -1,4 +1,4 @@
-var MANAGER;
+var MANAGERS = ["afek590@gmail.com", "someone@gmail.com"];
 
 /*var MYLIBRARY = MYLIBRARY || (function(){
     
@@ -30,16 +30,5 @@ var MANAGER;
 
     app.controller('MainController', ['$scope', '$window', function($scope, $window) {
         MANAGAR = false;
-        this.signIn = function()
-        {
-            // google id
-        };
         
-        this.isScreen = function(num){
-            return MANAGER == num;
-        };
-        
-        $window.setScreen = function(num){
-            MANAGER = num;
-        };
 }])})();
