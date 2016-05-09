@@ -1,4 +1,4 @@
-var MANAGERS = ["afek590@gmail.com", "someone@gmail.com"];
+var MANAGERS = ["afek590@gmail.com", "oriamir1@gmail.com"];
 var LOGIN = false;
 
 /*var MYLIBRARY = MYLIBRARY || (function(){
