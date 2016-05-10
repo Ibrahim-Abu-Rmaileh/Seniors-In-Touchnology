@@ -43,7 +43,7 @@ var LOGIN = false;
         this.email = "";
         var admin = {
             "email" : this.email;
-        }
+        };
         
         this.addManager = function(){
             MongoClient.connect(url, function(err, db) {
