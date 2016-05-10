@@ -41,9 +41,16 @@ var LOGIN = false;
         if(LOGIN == false)
             window.location.href = "#/";
         this.email = "";
+        var admin = {
+            "email" : this.email;
+        }
         
         this.addManager = function(){
-            
+            MongoClient.connect(url, function(err, db) {
+               assert.equal(null, err);
+                db.collection('Admins').insert(admin);
+                db.close();
+            });
             this.email = "";
         };
     });
