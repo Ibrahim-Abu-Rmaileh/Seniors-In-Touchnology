@@ -1,4 +1,4 @@
-var MANAGERS = ["afek590@gmail.com", "oriamir1@gmail.com"];
+var MANAGERS = ["afek590@gmail.com"];
 var LOGIN = false;
 
 /*var MYLIBRARY = MYLIBRARY || (function(){
@@ -15,6 +15,10 @@ var LOGIN = false;
 }());*/
 
 (function(){
+    var MongoClient = require('mongodb').MongoClient;
+    var assert = require('assert');
+    var ObjectId = require('mongodb').ObjectID;
+    var url = 'mongodb://sit:sit123@ds034279.mlab.com:34279/sit';
     var app = angular.module('SIT', ['ngRoute']);
     
     app.config(['$routeProvider', function($routeProvider){
@@ -39,7 +43,7 @@ var LOGIN = false;
         this.email = "";
         
         this.addManager = function(){
-            MANAGERS.push(this.email);
+            
             this.email = "";
         };
     });
