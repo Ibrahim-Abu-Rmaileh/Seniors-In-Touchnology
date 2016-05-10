@@ -42,7 +42,7 @@ var LOGIN = false;
             window.location.href = "#/";
         this.email = "";
         var admin = {
-            "email" : this.email;
+            "email" : this.email
         };
         
         this.addManager = function(){
