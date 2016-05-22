@@ -25,7 +25,7 @@
         <table>
             <tr><th>title</th> <th>descriptipon</th> <th>Delete</th><th>id</th> <th>Edit</th> </tr>
             <tr ng-repeat="nl in newsLetterList">
-                <td>{{nl.title}}</td> <td>{{nl.description}}</td> <td> <button id="elButton" ng-click="delObj(offer)">DEL</button></td><td></td>
+                <td>{{nl.title}}</td> <td>{{nl.description}}</td> <td> <button id="elButton" ng-click="delObj(nl)">DEL</button></td><td></td>
                 <td> <button id="updButt" ng-click="showUpdateNewsLetter(nl)" >Update</button></td>
             </tr>
         </table>

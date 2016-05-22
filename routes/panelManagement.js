@@ -5,7 +5,7 @@ var router = express.Router();
 
 /* GET Panel page. */
 router.get('/', function(req, res, next) {
-    res.render('panelManagment', { title: 'Management Panel' });
+    res.render('panelManagement', { title: 'Management Panel' });
 });
 
 module.exports = router;

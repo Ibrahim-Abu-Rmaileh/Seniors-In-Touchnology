@@ -20,6 +20,17 @@ angular.module('Voln', [])
             $scope.loadPanel();
         };
 
+        $scope.delVol = function(vol){
+            $http.post('/delvol', vol)
+                .success(function(res) {
+                    console.log('Volunteer deleted successfuly.');
+                    $scope.loadPanel();
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+        };
+
         $scope.loadPanel = function(){
             console.log('Panel has successfuly loaded.');
             $http.get('/getvolunteers')

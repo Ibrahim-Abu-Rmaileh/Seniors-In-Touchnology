@@ -19,7 +19,7 @@ Title:  <input type="text" id="txtTitle" ng-model="volObj.title"> Location <inpu
     <table>
         <tr><th>Title </th><th>Location</th> <th>Description</th> <th>Delete</th></tr>
         <tr ng-repeat="vol in volunteersList">
-            <td>{{vol.title}}</td> <td>{{vol.location}}</td> <td>{{vol.description}}</td> <td>del</td>
+            <td>{{vol.title}}</td> <td>{{vol.location}}</td> <td>{{vol.description}}</td> <td> <button id="delVol" ng-click="delVol(vol)">del</button> </td>
         </tr>
     </table>
 </div>

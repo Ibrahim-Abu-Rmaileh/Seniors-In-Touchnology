@@ -65,11 +65,11 @@ angular.module('Jobs', []).controller('JobsController', ['$scope', '$http', func
             $http.post('/delJob', $scope.delObject)
                 .success(function(res) {
                     console.log('job remove.');
+                    $scope.loadPanel();
                 })
                 .catch(function(err) {
                     console.log('job remove error.');
                 });
-            $scope.loadPanel();
         };
 
         $scope.loadPanel = function(){

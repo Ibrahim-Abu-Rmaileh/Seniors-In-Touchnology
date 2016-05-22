@@ -18,7 +18,7 @@ Course Name:  <input type="text" id="txtName" ng-model="courseObj.name"> Details
         <table>
             <tr><th>ID </th><th>Name</th> <th>Details</th> <th>Delete</th></tr>
             <tr ng-repeat="course in coursesList">
-                <td>{{course.id}}</td> <td>{{course.name}}</td> <td>{{course.details}}</td> <td>del</td>
+                <td>{{course.id}}</td> <td>{{course.name}}</td> <td>{{course.details}}</td> <td> <button id="delCourse" ng-click="delCourse(course)">del</button> </td>
             </tr>
         </table>
     </div>

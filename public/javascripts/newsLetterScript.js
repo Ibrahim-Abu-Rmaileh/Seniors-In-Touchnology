@@ -59,11 +59,11 @@ angular.module('newsLetter', []).controller('newsLetterController', ['$scope', '
         $http.post('/delNewsLetter', $scope.delObject)
             .success(function(res) {
                 console.log('job remove.');
+                $scope.loadPanel();
             })
             .catch(function(err) {
                 console.log('job remove error.');
             });
-        $scope.loadPanel();
     };
 
     $scope.loadPanel = function(){

@@ -11,7 +11,7 @@ var jobs = require('./routes/jobs');
 var newsLetter = require('./routes/newsLetter');
 var courses = require('./routes/courses');
 var volunteers = require('./routes/volunteers');
-var panelManagment = require('./routes/panelManagment');
+var panelManagement = require('./routes/panelManagement');
 
 
 
@@ -48,7 +48,7 @@ app.use('/jobs', jobs);
 app.use('/newsLetter', newsLetter);
 app.use('/courses', courses);
 app.use('/volunteers', volunteers);
-app.use('/panelManagment', panelManagment);
+app.use('/panelManagement', panelManagement);
 
 
 
@@ -122,6 +122,13 @@ app.get('/course', function (req, res) {
     });
 });
 
+app.post('/delcourse', function (req, res) {
+    Course.remove({_id: req.body._id}, function(err) {
+        console.log(err);
+    });
+    res.json('Course deleted');
+});
+
 
 ///*** function for Voulnters ***/////
 
@@ -147,6 +154,13 @@ app.get('/getvolunteers', function (req, res) {
     Vol.find(function(err, volunteers) {
         res.json(volunteers);
     });
+});
+
+app.post('/delvol', function (req, res) {
+    Vol.remove({_id: req.body._id}, function(err) {
+        console.log(err);
+    });
+    res.json('Volunteer deleted');
 });
 
 
@@ -179,12 +193,10 @@ app.get('/getNewsLetter', function (req, res) {
 
 //delete NewsLetter by object id
 app.post('/delNewsLetter', function (req, res) {
-    console.log(req);
-
     NewsLetter.remove({ _id: req.body._id}, function(err) {
         console.log(err);
-    })
-
+    });
+    res.json('Newsletter deleted');
 });
 
 //update Newsletter by object id
@@ -291,6 +303,15 @@ app.get('/admins', function (req, res) {
   Admin.find(function(err, admins) {
     res.json(admins);
   });
+});
+
+// Deleting admin from the database
+app.post('/deladmin', function (req, res) {
+    Admin.remove({name: req.body.name,
+    email: req.body.email}, function(err) {
+        console.log(err);
+    });
+    res.json('admin deleted');
 });
 
 
