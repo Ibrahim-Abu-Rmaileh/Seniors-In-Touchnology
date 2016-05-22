@@ -6,10 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var panel = require('./routes/panel');
+var jobs = require('./routes/jobs');
+var newsLetter = require('./routes/newsLetter');
 var courses = require('./routes/courses');
 var volunteers = require('./routes/volunteers');
+var panelManagment = require('./routes/panelManagment');
+
+
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
@@ -21,19 +25,6 @@ db.once('open', function() {
   console.log('Connection succeded');
 });
 
-var adminSchema = new Schema({
-  name: String,
-  email: String,
-  id: Number
-});
-var Admin = mongoose.model('Admins', adminSchema);
-
-var coursesSchema = new Schema({
-  name: String,
-  details: String,
-  id: Number
-});
-var Course = mongoose.model('Courses', coursesSchema);
 
 
 
@@ -52,79 +43,237 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/panel', panel);
+app.use('/jobs', jobs);
+app.use('/newsLetter', newsLetter);
 app.use('/courses', courses);
 app.use('/volunteers', volunteers);
+app.use('/panelManagment', panelManagment);
 
 
+
+//schema&models  for admins!
+var adminSchema = new Schema({
+    name: String,
+    email: String,
+    id: Number
+});
+var Admin = mongoose.model('Admins', adminSchema);
+
+
+//schema&modles  for jobs!
+var jobsSchame = new Schema({
+    title: String ,
+    location: String,
+    description: String
+});
+var Job = mongoose.model('Jobs', jobsSchame);
+
+
+//schema&modles for NewsLetter!
+var newsletterSchame = new Schema({
+    title: String ,
+    description: String
+});
+var NewsLetter = mongoose.model('NewsLetter', newsletterSchame);
+
+
+//schema&modles for Course!
+var coursesSchema = new Schema({
+    name: String,
+    details: String,
+    id: Number
+});
+var Course = mongoose.model('Courses', coursesSchema);
+
+
+//schema&modles for Volunters!
 var volunteersSchema = new Schema({
-  title: String,
-  location: String,
-  description: String
+    title: String,
+    location: String,
+    description: String
 });
 var Vol = mongoose.model('Vol', volunteersSchema);
 
-// Posting a new volunteering to the database
-app.post('/postvolunteers',function (req, res) {
-  console.log(req.body.title);
-  console.log(req.body.location);
-  console.log(req.body.description);
-  new Vol({
-    title: req.body.title,
-    location: req.body.location,
-    description: req.body.description
-  }).save(function(err){
-    if(err)
-      console.log(err);
-    else
-      res.json('saved');
-  });
-});
-
-// Getting all volunteers from database
-app.get('/getvolunteers', function (req, res) {
-  Vol.find(function(err, volunteers) {
-    res.json(volunteers);
-  });
-});
 
 
-
-
-
-
+///*** function for Courses ***/////
 
 // Posting a new course to the database
 app.post('/postcourse',function (req, res) {
-  console.log(req.body.name);
-  console.log(req.body.details);
-  new Course({
-    name: req.body.name,
-    details: req.body.details,
-    id: req.body.id
-  }).save(function(err){
-    if(err)
-      console.log(err);
-    else
-      res.json('saved');
-  });
+    console.log(req.body.name);
+    console.log(req.body.details);
+    new Course({
+        name: req.body.name,
+        details: req.body.details,
+        id: req.body.id
+    }).save(function(err){
+        if(err)
+            console.log(err);
+        else
+            res.json('saved');
+    });
 });
 
 // Getting all the courses from the database
 app.get('/course', function (req, res) {
-  Course.find(function(err, course) {
-    res.json(course);
-  });
+    Course.find(function(err, course) {
+        res.json(course);
+    });
+});
+
+
+///*** function for Voulnters ***/////
+
+// Posting a new volunteering to the database
+app.post('/postvolunteers',function (req, res) {
+    console.log(req.body.title);
+    console.log(req.body.location);
+    console.log(req.body.description);
+    new Vol({
+        title: req.body.title,
+        location: req.body.location,
+        description: req.body.description
+    }).save(function(err){
+        if(err)
+            console.log(err);
+        else
+            res.json('saved');
+    });
+});
+
+// Getting all volunteers from database
+app.get('/getvolunteers', function (req, res) {
+    Vol.find(function(err, volunteers) {
+        res.json(volunteers);
+    });
 });
 
 
 
+///*** function for newsLetter ***/////
+
+// Posting a new job to the database
+app.post('/postNewsLetter',function (req, res) {
+
+    new NewsLetter({
+        title: req.body.title,
+        description: req.body.description
+
+    }).save(function(err){
+        if(err)
+            console.log(err);
+        else
+            res.json('saved');
+    });
+});
+
+
+// Getting all the newsletter from the database
+app.get('/getNewsLetter', function (req, res) {
+    NewsLetter.find(function(err, news) {
+        res.json(news);
+    });
+});
+
+
+//delete NewsLetter by object id
+app.post('/delNewsLetter', function (req, res) {
+    console.log(req);
+
+    NewsLetter.remove({ _id: req.body._id}, function(err) {
+        console.log(err);
+    })
+
+});
+
+//update Newsletter by object id
+app.post('/updateNewsLetter', function (req, res) {
+
+    NewsLetter.remove({ _id: req.body.id}, function(err) {
+        console.log(err);
+    })
+    console.log(req.body);
+    new NewsLetter({
+        title: req.body.title,
+        description: req.body.description
+
+    }).save(function(err){
+        if(err)
+            console.log(err);
+        else
+            res.json('saved');
+    });
+
+});
+
+
+
+///*** function for jobs ***/////
+
+
+// Posting a new job to the database
+app.post('/postjob',function (req, res) {
+
+  new Job({
+    title: req.body.title,
+    location: req.body.location,
+    description: req.body.description
+
+  }).save(function(err){
+    if(err)
+      console.log(err);
+    else
+      res.json('saved');
+  });
+});
+
+
+// Getting all the jobs from the database
+app.get('/jobsOffer', function (req, res) {
+  Job.find(function(err, jobs) {
+    res.json(jobs);
+  });
+});
+
+//delete job from database using object id
+app.post('/delJob', function (req, res) {
+  console.log(req);
+
+    Job.remove({ _id: req.body._id}, function(err) {
+        console.log(err);
+    })
+
+});
+
+
+//update job  detalis by object id
+app.post('/updatejob', function (req, res) {
+
+    Job.remove({ _id: req.body.id}, function(err) {
+        console.log(err);
+    })
+    console.log(req.body);
+    new Job({
+        title: req.body.title,
+        location: req.body.location,
+        description: req.body.description
+
+    }).save(function(err){
+        if(err)
+            console.log(err);
+        else
+            res.json('saved');
+    });
+
+});
+
+
+
+///*** function for Admin ***/////
 
 // Posting a new admin to the database
 app.post('/postadmin',function (req, res) {
-  console.log(req.body.name);
-  console.log(req.body.email);
   new Admin({
     name: req.body.name,
     email: req.body.email,
@@ -144,14 +293,9 @@ app.get('/admins', function (req, res) {
   });
 });
 
-app.post('/deladmin', function (req, res) {
-    Admin.remove({name: req.body.name,
-    email: req.body.email}, function(err) {
-        console.log(err);
-    });
-    res.json('admin deleted');
-});
 
+
+///*** not touch ***/////
 
 
 // catch 404 and forward to error handler

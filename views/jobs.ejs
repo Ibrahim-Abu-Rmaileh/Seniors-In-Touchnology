@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="Jobs">
+
+<header>
+    <img src="images/logo.jpg" height="100px" style="float: left;"/>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/angular.min.js" type="text/javascript"></script>
+    <script src="/javascripts/jobScript.js" type="text/javascript"></script>
+
+    <h1>Seniors In Touchnology</h1>
+</header>
+
+
+<main>
+
+
+    <div ng-controller="JobsController as jobs">
+        <h3>Add new Job offer: </h3> <br>
+
+        title: <input type="text" name="title" id="titleId" ng-model="jobObj.title"><br>
+        location: <input type="text" name="location" id="locationId" ng-model="jobObj.location"><br>
+        description: <input type="text" name="description" id="descriptionId" ng-model="jobObj.description"><br>
+
+        <button id="acc" ng-click="addJob()" >SEND</button>
+
+            <table>
+                <tr><th>title</th><th>location</th> <th>descriptipon</th> <th>Delete</th><th>id</th> <th>Edit</th> </tr>
+                <tr ng-repeat="offer in jobsList">
+                    <td>{{offer.title}}</td> <td>{{offer.location}}</td> <td>{{offer.description}}</td> <td> <button id="elButton" ng-click="delObj(offer)" >DEL</button></td><td></td>
+                   <td> <button id="updButt" ng-click="showUpdateJob(offer)" >Update</button></td>
+                </tr>
+            </table>
+
+        <div id="edit"  ng-show="updObj.show">
+
+            title: <input type="text" name="title" id="titleId" ng-model="updObj.title"><br>
+            location: <input type="text" name="location" id="locationId" ng-model="updObj.location"><br>
+            description: <input type="text" name="description" id="descriptionId" ng-model="updObj.description"><br>
+
+            <button id="upBut1" ng-click="updateJob()" >UpdateObject</button>
+
+
+        </div>
+
+
+
+    </div>
+</main>
+<footer dir="rtl">
+    טלפון: 1800-100-947 | אימייל: office@mtova.org.il | כתובת: בית יד שרה, שדרות הרצל 124 ירושלים
+</footer>
+
+
+</html>
+
+

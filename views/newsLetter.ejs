@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="newsLetter">
+
+<header>
+    <img src="images/logo.jpg" height="100px" style="float: left;"/>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/angular.min.js" type="text/javascript"></script>
+    <script src="/javascripts/newsLetterScript.js" type="text/javascript"></script>
+
+    <h1>Seniors In Touchnology</h1>
+</header>
+
+
+<main>
+
+
+    <div ng-controller="newsLetterController as newslet">
+        <h3>Add new NewsLetter: </h3> <br>
+
+        title: <input type="text" name="title" id="titleId" ng-model="newsLetterObj.title"><br>
+        description: <input type="text" name="description" id="descriptionId" ng-model="newsLetterObj.description"><br>
+
+        <button id="acc" ng-click="addNewsLetter()" >SEND</button>
+
+        <table>
+            <tr><th>title</th> <th>descriptipon</th> <th>Delete</th><th>id</th> <th>Edit</th> </tr>
+            <tr ng-repeat="nl in newsLetterList">
+                <td>{{nl.title}}</td> <td>{{nl.description}}</td> <td> <button id="elButton" ng-click="delObj(offer)">DEL</button></td><td></td>
+                <td> <button id="updButt" ng-click="showUpdateNewsLetter(nl)" >Update</button></td>
+            </tr>
+        </table>
+
+        <div id="edit"  ng-show="newsLetterupdObj.show">
+
+            title: <input type="text" name="title" id="titleId" ng-model="newsLetterupdObj.title"><br>
+            description: <input type="text" name="description" id="descriptionId" ng-model="newsLetterupdObj.description"><br>
+
+            <button id="upBut1" ng-click="updateNewsLetter()" >UpdateObject</button>
+
+        </div>
+
+
+
+    </div>
+</main>
+<footer dir="rtl">
+    טלפון: 1800-100-947 | אימייל: office@mtova.org.il | כתובת: בית יד שרה, שדרות הרצל 124 ירושלים
+</footer>
+
+
+</html>
+
+
