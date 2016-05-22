@@ -144,6 +144,14 @@ app.get('/admins', function (req, res) {
   });
 });
 
+app.post('/deladmin', function (req, res) {
+    Admin.remove({name: req.body.name,
+    email: req.body.email}, function(err) {
+        console.log(err);
+    });
+    res.json('admin deleted');
+});
+
 
 
 // catch 404 and forward to error handler
