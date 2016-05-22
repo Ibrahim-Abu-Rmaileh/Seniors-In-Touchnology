@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="Voln">
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/angular.min.js" type="text/javascript"></script>
+    <script src="/javascripts/volunteersScript.js" type="text/javascript"></script>
+</head>
+<body ng-controller="VolunteersController as v">
+
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+<h3>Add new volunteering: </h3> <br>
+Title:  <input type="text" id="txtTitle" ng-model="volObj.title"> Location <input type = "text" id = "txtLocation" ng-model="volObj.location"> Description <input type = "text" id = "txtDesc" ng-model="volObj.description"> <br>
+<button ng-click="addVol()" id="cmdAdd">Add</button>
+<br><br><br>
+<h3>Edit courses list:</h3> <br>
+<div id="volunteers">
+    <table>
+        <tr><th>Title </th><th>Location</th> <th>Description</th> <th>Delete</th></tr>
+        <tr ng-repeat="vol in volunteersList">
+            <td>{{vol.title}}</td> <td>{{vol.location}}</td> <td>{{vol.description}}</td> <td>del</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

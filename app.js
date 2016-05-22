@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var panel = require('./routes/panel');
+var courses = require('./routes/courses');
+var volunteers = require('./routes/volunteers');
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
@@ -21,9 +23,19 @@ db.once('open', function() {
 
 var adminSchema = new Schema({
   name: String,
-  email: String
+  email: String,
+  id: Number
 });
 var Admin = mongoose.model('Admins', adminSchema);
+
+var coursesSchema = new Schema({
+  name: String,
+  details: String,
+  id: Number
+});
+var Course = mongoose.model('Courses', coursesSchema);
+
+
 
 var app = express();
 
@@ -42,6 +54,72 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/panel', panel);
+app.use('/courses', courses);
+app.use('/volunteers', volunteers);
+
+
+var volunteersSchema = new Schema({
+  title: String,
+  location: String,
+  description: String
+});
+var Vol = mongoose.model('Vol', volunteersSchema);
+
+// Posting a new volunteering to the database
+app.post('/postvolunteers',function (req, res) {
+  console.log(req.body.title);
+  console.log(req.body.location);
+  console.log(req.body.description);
+  new Vol({
+    title: req.body.title,
+    location: req.body.location,
+    description: req.body.description
+  }).save(function(err){
+    if(err)
+      console.log(err);
+    else
+      res.json('saved');
+  });
+});
+
+// Getting all volunteers from database
+app.get('/getvolunteers', function (req, res) {
+  Vol.find(function(err, volunteers) {
+    res.json(volunteers);
+  });
+});
+
+
+
+
+
+
+
+// Posting a new course to the database
+app.post('/postcourse',function (req, res) {
+  console.log(req.body.name);
+  console.log(req.body.details);
+  new Course({
+    name: req.body.name,
+    details: req.body.details,
+    id: req.body.id
+  }).save(function(err){
+    if(err)
+      console.log(err);
+    else
+      res.json('saved');
+  });
+});
+
+// Getting all the courses from the database
+app.get('/course', function (req, res) {
+  Course.find(function(err, course) {
+    res.json(course);
+  });
+});
+
+
+
 
 // Posting a new admin to the database
 app.post('/postadmin',function (req, res) {
@@ -49,12 +127,13 @@ app.post('/postadmin',function (req, res) {
   console.log(req.body.email);
   new Admin({
     name: req.body.name,
-    email: req.body.email
+    email: req.body.email,
+    id: req.body.id
   }).save(function(err){
     if(err)
-        console.log(err);
+      console.log(err);
     else
-        res.json('saved');
+      res.json('saved');
   });
 });
 
@@ -65,13 +144,7 @@ app.get('/admins', function (req, res) {
   });
 });
 
-app.post('/deladmin', function (req, res) {
-    Admin.remove({name: req.body.name,
-    email: req.body.email}, function(err) {
-        console.log(err);
-    });
-    res.json('deleted');
-});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

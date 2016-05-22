@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="Course">
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/angular.min.js" type="text/javascript"></script>
+    <script src="/javascripts/courseScript.js" type="text/javascript"></script>
+</head>
+<body ng-controller="CourseController as course">
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+<h3>Add new course: </h3> <br>
+Course Name:  <input type="text" id="txtName" ng-model="courseObj.name"> Details <input type = "text" id = "txtDetails" ng-model="courseObj.details"> <br>
+    <button ng-click="addCourse()" id="cmdAdd">Add</button>
+    <br><br><br>
+    <h3>Edit courses list:</h3> <br>
+    <div id="courses">
+        <table>
+            <tr><th>ID </th><th>Name</th> <th>Details</th> <th>Delete</th></tr>
+            <tr ng-repeat="course in coursesList">
+                <td>{{course.id}}</td> <td>{{course.name}}</td> <td>{{course.details}}</td> <td>del</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
