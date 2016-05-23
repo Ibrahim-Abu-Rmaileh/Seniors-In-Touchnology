@@ -7,7 +7,9 @@ angular.module('Course', [])
         $scope.coursesList;
         $scope.newCourseId;
 
-        $scope.loadPanel = function(){
+
+        
+        scope.loadPanel = function(){
             console.log('Panel has successfuly loaded.');
             $http.get('/course')
                 .success(function(res){

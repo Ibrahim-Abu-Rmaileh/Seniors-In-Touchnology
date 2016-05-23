@@ -3,7 +3,7 @@ angular.module('Jobs', []).controller('JobsController', ['$scope', '$http', func
         $scope.jobObj = {};
         $scope.jobObj.title = "";
         $scope.jobObj.location= "";
-        $scope.jobObj.description = "";
+        $scope.jobObj.description = ""; 
 
         $scope.jobsList;
         $scope.delObject;

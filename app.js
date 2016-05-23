@@ -18,7 +18,7 @@ var panelManagement = require('./routes/panelManagement');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://oriamir:0509731212Aa!@ds034279.mlab.com:34279/sit');
+mongoose.connect('mongodb://sit:sit123@ds034279.mlab.com:34279/sit');
 var db = mongoose.connection;
 db.on('error', console.error);
 db.once('open', function() {
