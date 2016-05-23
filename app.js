@@ -55,8 +55,7 @@ app.use('/panelManagement', panelManagement);
 //schema&models  for admins!
 var adminSchema = new Schema({
     name: String,
-    email: String,
-    id: Number
+    email: String
 });
 var Admin = mongoose.model('Admins', adminSchema);
 
@@ -288,8 +287,7 @@ app.post('/updatejob', function (req, res) {
 app.post('/postadmin',function (req, res) {
   new Admin({
     name: req.body.name,
-    email: req.body.email,
-    id: req.body.id
+    email: req.body.email
   }).save(function(err){
     if(err)
       console.log(err);

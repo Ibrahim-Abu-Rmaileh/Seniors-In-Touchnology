@@ -9,7 +9,7 @@ angular.module('Course', [])
 
 
         
-        scope.loadPanel = function(){
+        $scope.loadPanel = function(){
             console.log('Panel has successfuly loaded.');
             $http.get('/course')
                 .success(function(res){
