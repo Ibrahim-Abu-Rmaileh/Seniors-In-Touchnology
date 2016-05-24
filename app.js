@@ -12,6 +12,10 @@ var newsLetter = require('./routes/newsLetter');
 var courses = require('./routes/courses');
 var volunteers = require('./routes/volunteers');
 var panelManagement = require('./routes/panelManagement');
+var jobOffers = require('./routes/jobOffers');
+var newsLettersMain = require('./routes/newsLettersMain');
+var volunteersReg = require('./routes/volunteersReg');
+var coursesReg = require('./routes/coursesReg');
 
 
 
@@ -49,6 +53,11 @@ app.use('/newsLetter', newsLetter);
 app.use('/courses', courses);
 app.use('/volunteers', volunteers);
 app.use('/panelManagement', panelManagement);
+app.use('/jobOffers', jobOffers);
+app.use('/volunteersReg', volunteersReg);
+app.use('/coursesReg', coursesReg);
+app.use('/newsLettersMain', newsLettersMain);
+
 
 
 

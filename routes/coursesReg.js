@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.render('jobOffers', { title: 'jobOffers' });
+    res.render('coursesReg', { title: 'coursesReg' });
 });
 
 module.exports = router;
