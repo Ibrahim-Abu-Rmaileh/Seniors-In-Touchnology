@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="jobOffers">
 <head>
-    <title>Job Offers</title>
+    <title>Course Reg</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="/javascripts/angular.min.js" type="text/javascript"></script>
+    <script src="/javascripts/jobOffersScript.js" type="text/javascript"></script>
 
 </head>
-<body>
+<body dir="rtl" ng-controller="jobOffersController as jobOffer">
+
+
 <a href="../" class="myButton">Back to main</a>
-This is the Job Offers page
+
+<center>  <h1>  הצעות עבודה</h1> </center><br><br>
+
+<div class="squareDiv" ng-repeat="offer in jobOfferList">
+    {{offer.title}}
+    <br>
+    :מיקום
+    {{offer.location}}
+    תיאור
+    <br>{{offer.description}}
+</div>
+
+
 
 </body>
 </html>
