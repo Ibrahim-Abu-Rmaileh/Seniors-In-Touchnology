@@ -9,10 +9,10 @@ angular.module('courseReg', [])
            {
                emailjs.send("gmail","gmail",{name:$("#username").html(), email:$("#email").html(), tel:$("#tel").html()}).then(
                    function(response) {
-                       alert("success");
+                       alert("המייל נשלח בהצלחה");
                    },
                    function(error) {
-                       alert("failed");
+                       alert("נכשל");
                    }
                );
            }
