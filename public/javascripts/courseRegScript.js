@@ -2,18 +2,20 @@ angular.module('courseReg', [])
     .controller('CoureRegController', ['$scope', '$http', function($scope, $http){
         $scope.courseRegList;
 
-        $scope.clickListener = function(e)
+        var clickListener = function(e)
         {
+
             if(e.target.id == "sendEmail")
-                emailjs.send("gmail","gmail").then(
+            {
+                emailjs.send("gmail","gmail",{name:$("#username").val(), email:$("#email").val(), tel:$("#tel").val()}).then(
                     function(response) {
-                        alert("success");
+                        alert("המייל נשלח בהצלחה");
                     },
                     function(error) {
-                        alert("failed");
+                        alert("נכשל");
                     }
-                )
-            //{name:$("#username").html(), email:$("#email").html(), tel:$("#tel").html()}
+                );
+            }
         }
 
         $scope.loadCourseReg = function()
@@ -29,7 +31,3 @@ angular.module('courseReg', [])
         };
         $scope.loadCourseReg();
     }]);
-
-
-
-
