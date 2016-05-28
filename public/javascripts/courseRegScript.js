@@ -5,7 +5,7 @@ angular.module('courseReg', [])
         var clickListener = function(e)
         {
 
-<<<<<<< HEAD
+
             if(e.target.id == "sendEmail")
             {
                 emailjs.send("gmail","gmail",{name:$("#username").val(), email:$("#email").val(), tel:$("#tel").val()}).then(
@@ -17,7 +17,7 @@ angular.module('courseReg', [])
                     }
                 );
             }
-=======
+
            if(e.target.id == "sendEmail")
            {
                emailjs.send("gmail","gmail",{name:$("#username").val(), email:$("#email").val(), tel:$("#tel").val()}).then(
@@ -31,7 +31,7 @@ angular.module('courseReg', [])
            }
 
 
->>>>>>> 2c9b4e00355c6e3109922ef98124d7b1b9b3f069
+
         }
 
         $scope.loadCourseReg = function()
