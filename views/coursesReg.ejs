@@ -39,8 +39,8 @@
 
 
         <div ng-repeat="course in courseRegList">
-            <%var temp = course.name%>
-            <input type = "checkbox" value ='temp'>
+
+            <input type = "checkbox" ng-value="{{course.name}}">
         </div>
 
 
