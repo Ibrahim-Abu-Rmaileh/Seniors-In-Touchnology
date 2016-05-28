@@ -2,7 +2,7 @@ angular.module('courseReg', [])
     .controller('CoureRegController', ['$scope', '$http', function($scope, $http){
         $scope.courseRegList;
 
-        $scope.clickListener = function(e)
+        var clickListener = function(e)
         {
 
            if(e.target.id == "sendEmail")
