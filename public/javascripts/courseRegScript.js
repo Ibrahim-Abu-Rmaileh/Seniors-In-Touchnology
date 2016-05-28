@@ -7,7 +7,7 @@ angular.module('courseReg', [])
 
            if(e.target.id == "sendEmail")
            {
-               emailjs.send("gmail","gmail").then(
+               emailjs.send("gmail","gmail",{name:$("#username").html(), email:$("#email").html(), tel:$("#tel").html()}).then(
                    function(response) {
                        alert("success");
                    },
@@ -17,7 +17,7 @@ angular.module('courseReg', [])
                );
            }
 
-            //{name:$("#username").html(), email:$("#email").html(), tel:$("#tel").html()}*/
+
         }
 
         $scope.loadCourseReg = function()
