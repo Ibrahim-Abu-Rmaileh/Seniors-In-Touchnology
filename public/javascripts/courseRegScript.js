@@ -7,15 +7,14 @@ angular.module('courseReg', [])
 
            if(e.target.id == "sendEmail")
            {
-               alert("HOMO");
-               /*emailjs.send("gmail","gmail").then(
+               emailjs.send("gmail","gmail").then(
                    function(response) {
                        alert("success");
                    },
                    function(error) {
                        alert("failed");
                    }
-               );*/
+               );
            }
 
             //{name:$("#username").html(), email:$("#email").html(), tel:$("#tel").html()}*/
