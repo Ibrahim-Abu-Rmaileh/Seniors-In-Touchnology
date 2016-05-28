@@ -5,7 +5,8 @@ angular.module('courseReg', [])
         $scope.clickListener = function(e)
         {
             if(e.target.id == "sendEmail")
-                emailjs.send("gmail","gmail",{name:$("#username").html(), email:$("#email").html(), tel:$("#tel").html()});
+                emailjs.send("gmail","gmail");
+            //{name:$("#username").html(), email:$("#email").html(), tel:$("#tel").html()}
         }
 
         $scope.loadCourseReg = function()
