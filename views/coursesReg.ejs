@@ -26,20 +26,21 @@
 
 <div class="register">
     <form>
-        <label for="username"> Enter your name:</label>
+        <label for="username">הכנס את שמך: </label>
         <input id="username" type="text">
         <br/>
-        <label for="email"> Email: </label>
+        <label for="email">מייל: </label>
         <input id="email" type="email">
         <br/>
-        <label for="tel"> Phone number: </label>
+        <label for="tel">מספר טלפון: </label>
         <input id="tel" type="tel">
         <br/>
         <input type = "checkbox" value ="course.name">
 
 
         <div ng-repeat="course in courseRegList">
-            <input type = "checkbox" value ="{{course.name}}">
+            <%var temp = course.name%>
+            <input type = "checkbox" value ='temp'>
         </div>
 
 
