@@ -5,7 +5,14 @@ angular.module('courseReg', [])
         $scope.clickListener = function(e)
         {
             if(e.target.id == "sendEmail")
-                emailjs.send("gmail","gmail");
+                emailjs.send("gmail","gmail").then(
+                    function(response) {
+                        alert("success");
+                    },
+                    function(error) {
+                        alert("failed");
+                    }
+                )
             //{name:$("#username").html(), email:$("#email").html(), tel:$("#tel").html()}
         }
 
