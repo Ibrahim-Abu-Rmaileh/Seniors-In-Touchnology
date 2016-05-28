@@ -22,6 +22,20 @@
     <br>{{course.details}}
     </div>
 
+<div class="register">
+    <form ng-repeat="course in courseRegList">
+        <label for="username"> Enter you name:</label>
+        <input id="username" type="text">
+        <label for="email"> Email: </label>
+        <input id="email" type="email">
+        <label for="tel"> Phone number: </label>
+        <input id="tel" type="tel">
+        <input type = "radio" value ="course.name">
+
+    </form>
+</div>
+
+
 
 
 </body>

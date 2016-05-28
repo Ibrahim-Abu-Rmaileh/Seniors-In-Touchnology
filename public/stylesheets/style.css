@@ -158,8 +158,11 @@ footer{
   filter: alpha(opacity = 98);
   /*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
   /*All filters must be placed together*/
+}
 
+.register {
 
-
+  width: 100%;
+  background-color: burlywood;
 
 }
