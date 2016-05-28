@@ -7,7 +7,7 @@ angular.module('courseReg', [])
 
            if(e.target.id == "sendEmail")
            {
-               emailjs.send("gmail","gmail",{name:$("#username").html(), email:$("#email").html(), tel:$("#tel").html()}).then(
+               emailjs.send("gmail","gmail",{name:$("#username").val(), email:$("#email").val(), tel:$("#tel").val()}).then(
                    function(response) {
                        alert("המייל נשלח בהצלחה");
                    },
