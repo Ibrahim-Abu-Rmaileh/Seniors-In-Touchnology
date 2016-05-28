@@ -22,6 +22,8 @@
     <br>{{course.details}}
     </div>
 
+<br/>
+
 <div class="register">
     <form>
         <label for="username"> Enter your name:</label>
@@ -32,7 +34,7 @@
         <input id="tel" type="tel">
 
         <div ng-repeat="course in courseRegList">
-            <input type = "checkbox" value ="{{course.name}}">
+            <input type = "checkbox" value ="course.name">
         </div>
 
     </form>
