@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="courseReg">
+<head>
+    <title>Course Reg</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/angular.min.js" type="text/javascript"></script>
+    <script src="/javascripts/courseRegScript.js" type="text/javascript"></script>
+
+</head>
+<body dir="rtl" ng-controller="CoureRegController as courseReg">
+
+
+<a href="../" class="myButton">Back to main</a>
+
+<center>  <h1> רשימת הקורסים</h1> </center><br><br>
+
+<div class="squareDiv" ng-repeat="course in courseRegList">
+    שם הקורס:
+    {{course.name}}
+    <br>
+        פרטים
+    <br>{{course.details}}
+    </div>
+
+<br/>
+
+<div class="register">
+    <form>
+        <label for="username"> Enter your name:</label>
+        <input id="username" type="text">
+        <label for="email"> Email: </label>
+        <input id="email" type="email">
+        <label for="tel"> Phone number: </label>
+        <input id="tel" type="tel">
+<<<<<<< HEAD
+        <input type = "checkbox" value ="course.name">
+=======
+
+        <div ng-repeat="course in courseRegList">
+            <input type = "checkbox" value ={{course.name}}>
+        </div>
+>>>>>>> a6d89ffe8bd94137c499dbffe4d51c01458086c9
+
+    </form>
+</div>
+
+
+</body>
+</html>
