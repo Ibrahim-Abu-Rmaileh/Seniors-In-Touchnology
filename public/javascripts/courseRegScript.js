@@ -28,9 +28,13 @@ angular.module('courseReg', [])
                     }
                 }
 
-                emailjs.send("gmail","gmail",{name:$("#username").val(),
-                    email:$("#email").val(), tel:$("#tel").val(),
-                    course:chosenCourses, notes:$("#notes").val()}).then(
+                emailjs.send("gmail","gmail",{
+                    name:$("#username").val(),
+                    email:$("#email").val(),
+                    tel:$("#tel").val(),
+                    course:chosenCourses,
+                    notes:$("#notes").val()
+                }).then(
                     function(response) {
                         alert("המייל נשלח בהצלחה");
                     },
