@@ -11,6 +11,7 @@ angular.module('Panel', [])
             .success(function(res){
                 $scope.adminsList = res;
                 console.log('Panel has successfuly loaded.');
+                $scope.$apply;
             })
             .catch(function(err) {
                 console.log('Get admins error.');

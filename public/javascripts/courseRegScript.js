@@ -32,6 +32,7 @@ angular.module('courseReg', [])
                 .success(function(res){
                     $scope.courseRegList = res;
                     $("#sendEmail").click(clickListener);
+                    console.log($scope.courseRegList);
                 })
                 .catch(function(err) {
                     console.log('Get courses error.');
