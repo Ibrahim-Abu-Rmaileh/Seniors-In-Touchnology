@@ -48,7 +48,10 @@
 
     <div ng-repeat="course in courseRegList">
 
-        <input type = "checkbox">{{course.name}}
+        <input type = "checkbox" id="checkbox">
+        <script>
+            $("#checkbox").value = course.name;
+        </script>
     </div>
 
     <label for="notes">הערות:</label>
