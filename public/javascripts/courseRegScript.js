@@ -15,7 +15,7 @@ angular.module('courseReg', [])
             * 2)clone all this logic to the volunteer page*/
             if(e.target.id == "sendEmail")
             {
-                /*First,we need to get list of courses that the user chose
+                /*First, we need to get list of courses that the user chose
                 * in the checkboxes*/
                 var i;
                 var checkboxArray = $('.checkbox');
