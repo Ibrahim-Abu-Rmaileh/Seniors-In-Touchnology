@@ -1,39 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title><%= title%></title>
-    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
+    <meta charset="UTF-8">
+    <title>sit</title>
 
-<header>
-    <img src="<%= logo%>" height="100px" style="float: left;"/>
-    <h1><%= title %></h1>
-</header>
-<nav>
-    <marquee behavior="scroll" direction="up" scrollamount="1" height="398px">Excellent site, thank you for all your
-        work!
-    </marquee>
-</nav>
-<main>
-    <center>
-        <a href="jobOffers">
-            <div class="rec">Job Offers</div>
-        </a>
-        <a href="newsLettersMain">
-            <div class="rec2">Newsletters</div>
-        </a>
-        <a href="coursesReg">
-            <div class="rec3">Courses Registration</div>
-        </a>
-        <a href="volunteersReg">
-            <div class="rec4">Volunteering Registration</div>
-        </a>
-    </center>
-    <a href="panelManagement" class="myButton">Panel</a>
-</main>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body dir="rtl">
+
+<div class="buttonPanel"><a href="panelManagement" ><button type="button" class="btn btn-info"> פאנל</button></a></div>
+
+<img src="/stylesheets/logo.png" class="img-responsive">
+<li><hr></li>
+
+<div class="container">
+
+
+    <br>
+    <div class="row">
+
+        <div class="col-xs-6">
+
+            <a href="jobOffers" class="thumbnail"><img src = "/stylesheets/jobs.jpg"></a>
+        </div>
+
+
+        <div class="col-xs-6">
+
+            <a href="coursesReg" class="thumbnail"><img src = "/stylesheets/courses.png"></a>
+        </div>
+
+
+        <div class="col-xs-6">
+
+            <a href="newsLettersMain" class="thumbnail"><img src = "/stylesheets/newsLe.png"></a>
+        </div>
+        <div class="col-xs-6">
+
+            <a href="volunteersReg" class="thumbnail"><img src = "/stylesheets/vol.jpeg"></a>
+        </div>
+
+    </div>
+
+
+</div>
+
 <footer dir="rtl">
     טלפון: 1800-100-947 | אימייל: office@mtova.org.il | כתובת: בית יד שרה, שדרות הרצל 124 ירושלים
 </footer>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
