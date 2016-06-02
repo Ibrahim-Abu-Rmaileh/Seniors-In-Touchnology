@@ -23,7 +23,10 @@
 <!-- Start google scripts -->
 
 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+<a href="#" onclick="signOut()">Sign Out</a>
 
+<a href="managementPanel" class="myButton" ng-view="isAdmin()">Panel</a>
+<br><br>
 <script>
     function onSignIn(googleUser) {
 
@@ -40,10 +43,10 @@
         var id_token = googleUser.getAuthResponse().id_token;
         //console.log("ID Token: " + id_token);
 
-        if(MANAGERS.indexOf(profile.getEmail()) > -1)
+        if((MANAGERS.indexOf(profile.getEmail()) > -1))
         {
+            console.log('LOGGING IN');
             LOGIN = true;
-            window.location.href= "panelManagement";
         }
         else
             signOut();
@@ -52,7 +55,7 @@
 
 <script>
     function signOut() {
-        LOGIN = false;
+        //LOGIN = false;
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function () {
             console.log('User signed out.');
@@ -61,8 +64,6 @@
 </script>
 
 <!-- end google scripts -->
-
-
 
 <header>
     <img src="<%= logo%>" height="100px" style="float: left;"/>

@@ -1,24 +1,24 @@
 var MANAGERS = [];
 var LOGIN = false;
 
-angular.module('Index', [])
-    .controller('IndexController', ['$scope', '$http', function($scope, $http){
+var app = angular.module('Index', []).controller('IndexController', ['$scope', '$http', function($scope, $http){
+    $scope.loadPanel = function(){
+        //LOGIN = false;
+        $http.get('/admins')
+            .success(function(res){
+                response = res;
+                for(var i=0; i<response.length; i++)
+                    MANAGERS.push(response[i].email);
+                console.log('Panel has successfuly loaded.');
+            })
+            .catch(function(err) {
+                console.log('Get admins error.');
+            });
+    };
 
+    $scope.isAdmin = function(){
+        return LOGIN;
+    };
 
-        $scope.loadPanel = function(){
-            $http.get('/admins')
-                .success(function(res){
-                    response = res;
-                    for(var i=0; i<response.length; i++)
-                        MANAGERS.push(response[i].email);
-                    if(LOGIN == false)
-                        window.location.href = "#/";
-                    console.log('Panel has successfuly loaded.');
-                })
-                .catch(function(err) {
-                    console.log('Get admins error.');
-                });
-        };
-
-        $scope.loadPanel();
-    }]);
+    $scope.loadPanel();
+}]);
