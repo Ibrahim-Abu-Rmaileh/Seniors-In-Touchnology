@@ -53,7 +53,8 @@ angular.module('courseReg', [])
                 .catch(function(err) {
                     console.log('Get courses error.');
                 });
-            sweetAlert("המייל נשלח בהצלחה");
         };
         $scope.loadCourseReg();
+        sweetAlert("המייל נשלח בהצלחה");
+
     }]);
