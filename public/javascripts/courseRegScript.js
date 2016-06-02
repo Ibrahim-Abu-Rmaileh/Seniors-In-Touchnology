@@ -1,4 +1,4 @@
-
+var sAlert = require('sweetalert');
 angular.module('courseReg', [])
     .controller('CoureRegController', ['$scope', '$http', function($scope, $http){
         $scope.courseRegList;
@@ -54,7 +54,7 @@ angular.module('courseReg', [])
                 .catch(function(err) {
                     console.log('Get courses error.');
                 });
-            sweetAlert("המייל נשלח בהצלחה");
+            sAlert.sweetAlert("המייל נשלח בהצלחה");
         };
         $scope.loadCourseReg();
     }]);
