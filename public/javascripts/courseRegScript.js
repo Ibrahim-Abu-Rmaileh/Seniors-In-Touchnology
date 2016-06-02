@@ -15,7 +15,26 @@ angular.module('courseReg', [])
             * 2)clone all this logic to the volunteer page*/
             if(e.target.id == "sendEmail")
             {
-                emailjs.send("gmail","gmail",{name:$("#username").val(), email:$("#email").val(), tel:$("#tel").val()}).then(
+                /*First, we need to get list of courses that the user chose
+                * in the checkboxes*/
+                var i;
+                var checkboxArray = $('.checkbox');
+                var chosenCourses = new Array(); // filling this string array with the names
+                for(i=0; i<$scope.courseRegList.length; i++)
+                {
+                    if(checkboxArray[i].checked == true) // if checkbox set to true
+                    {
+                        chosenCourses.push(checkboxArray[i].defaultValue); // save course name
+                    }
+                }
+
+                emailjs.send("gmail","gmail",{
+                    name:$("#username").val(),
+                    email:$("#email").val(),
+                    tel:$("#tel").val(),
+                    course:chosenCourses,
+                    notes:$("#notes").val()
+                }).then(
                     function(response) {
                         alert("המייל נשלח בהצלחה");
                     },

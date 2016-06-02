@@ -1,6 +1,3 @@
-body{
-  background-color: azure;
-}
 
 .rec{
   border: 2px;
@@ -168,3 +165,57 @@ footer{
   margin-top:50px;
 
 }
+
+
+.dummy {
+  margin-top: 50%;
+  background-color: yellow;
+
+}
+.red
+{
+  background-color: yellow
+
+}
+.thumbnail {
+
+
+  /*
+
+      top: 20px;
+      bottom: 0;
+      left: 15px;
+      right: 40px;
+      text-align:center;
+      padding-top:calc(50% - 30px);
+
+      background-image: url('jobs.jpg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;*/
+
+
+}
+
+.thumbnail img {
+  max-width: 800px;
+  max-height: 300px;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.container
+{
+  background-color:whitesmoke;
+}
+
+.buttonPanel
+{
+  float:right ;
+  margin-top: 5px;
+  margin-right:20px;
+}
+
+.leftside{
+  margin-left:100px;
+}
+
