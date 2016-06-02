@@ -26,7 +26,7 @@ angular.module('courseReg', [])
                         chosenCourses.push(checkboxArray[i].defaultValue); // save course name
                     }
                 }
-                swal("המייל נשלח בהצלחה");
+
                 emailjs.send("gmail","regCourse",{
                     name:$("#username").val(),
                     email:$("#email").val(),
@@ -55,6 +55,7 @@ angular.module('courseReg', [])
                 .catch(function(err) {
                     console.log('Get courses error.');
                 });
+            swal("המייל נשלח בהצלחה");
         };
         $scope.loadCourseReg();
     }]);
