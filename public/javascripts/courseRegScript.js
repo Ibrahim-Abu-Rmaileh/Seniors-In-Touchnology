@@ -24,7 +24,7 @@ angular.module('courseReg', [])
                         chosenCourses.push(checkboxArray[i].defaultValue); // save course name
                     }
                 }
-                sweetAlert("המייל נשלח בהצלחה");
+                swal("המייל נשלח בהצלחה");
 
                 /*emailjs.send("gmail","regCourse",{
                     name:$("#username").val(),
