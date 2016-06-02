@@ -22,11 +22,6 @@
 
 <!-- Start google scripts -->
 
-<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-<a href="#" onclick="signOut()">Sign Out</a>
-
-<a href="managementPanel" class="myButton" ng-view="isAdmin()">Panel</a>
-<br><br>
 <script>
     function onSignIn(googleUser) {
 
@@ -55,7 +50,7 @@
 
 <script>
     function signOut() {
-        //LOGIN = false;
+        LOGIN = false;
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function () {
             console.log('User signed out.');
@@ -64,6 +59,12 @@
 </script>
 
 <!-- end google scripts -->
+
+<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+<a href="#" onclick="signOut()">Sign Out</a>
+
+
+<br><br>
 
 <header>
     <img src="<%= logo%>" height="100px" style="float: left;"/>
@@ -89,10 +90,13 @@
             <div class="rec4">Volunteering Registration</div>
         </a>
     </center>
-    <a href="panelManagement" class="myButton">Panel</a>
+    <a href="panelManagement" class="myButton" ng-show="access">Panel</a>
 </main>
 <footer dir="rtl">
     טלפון: 1800-100-947 | אימייל: office@mtova.org.il | כתובת: בית יד שרה, שדרות הרצל 124 ירושלים
 </footer>
+<div ng-show="isAdmin()">
+    Hello
+</div>
 </body>
 </html>

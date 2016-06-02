@@ -1,7 +1,7 @@
 var MANAGERS = [];
 var LOGIN = false;
 
-var app = angular.module('Index', []).controller('IndexController', ['$scope', '$http', function($scope, $http){
+var app = angular.module('Index', []).controller('IndexController', ['$scope', '$http', '$interval', function($scope, $http, $interval){
     $scope.loadPanel = function(){
         //LOGIN = false;
         $http.get('/admins')
@@ -16,9 +16,11 @@ var app = angular.module('Index', []).controller('IndexController', ['$scope', '
             });
     };
 
-    $scope.isAdmin = function(){
-        return LOGIN;
-    };
+    $scope.access = false;
+
+    $interval(function(){
+        $scope.access = LOGIN;
+    }, 1000);
 
     $scope.loadPanel();
 }]);
