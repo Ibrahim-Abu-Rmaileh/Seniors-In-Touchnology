@@ -24,8 +24,9 @@ angular.module('courseReg', [])
                         chosenCourses.push(checkboxArray[i].defaultValue); // save course name
                     }
                 }
+                sweetAlert("המייל נשלח בהצלחה");
 
-                emailjs.send("gmail","regCourse",{
+                /*emailjs.send("gmail","regCourse",{
                     name:$("#username").val(),
                     email:$("#email").val(),
                     tel:$("#tel").val(),
@@ -38,7 +39,7 @@ angular.module('courseReg', [])
                     function(error) {
                        // sAlert.swal("נכשל");
                     }
-                );
+                );*/
             }
         }
 
@@ -55,6 +56,4 @@ angular.module('courseReg', [])
                 });
         };
         $scope.loadCourseReg();
-        sweetAlert("המייל נשלח בהצלחה");
-
     }]);
