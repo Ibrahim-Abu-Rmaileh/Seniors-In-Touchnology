@@ -1,4 +1,3 @@
-var sAlert = require('sweetalert');
 angular.module('courseReg', [])
     .controller('CoureRegController', ['$scope', '$http', function($scope, $http){
         $scope.courseRegList;
@@ -34,10 +33,10 @@ angular.module('courseReg', [])
                     notes:$("#notes").val()
                 }).then(
                     function(response) {
-                        sAlert.swal("המייל נשלח בהצלחה");
+                        //sAlert.swal("המייל נשלח בהצלחה");
                     },
                     function(error) {
-                        sAlert.swal("נכשל");
+                       // sAlert.swal("נכשל");
                     }
                 );
             }
@@ -54,7 +53,7 @@ angular.module('courseReg', [])
                 .catch(function(err) {
                     console.log('Get courses error.');
                 });
-            sAlert.sweetAlert("המייל נשלח בהצלחה");
+            sweetAlert("המייל נשלח בהצלחה");
         };
         $scope.loadCourseReg();
     }]);
