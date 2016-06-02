@@ -9,15 +9,12 @@ angular.module('courseReg', [])
             * email to a specific email we configured before.
             * email sended to - sitjce@gmail.com*/
 
-            /*
-            * TO_DO :
-            * 1)send also the wanted courses as part of the email
-            * 2)clone all this logic to the volunteer page*/
             if(e.target.id == "sendEmail")
             {
                 /*First, we need to get list of courses that the user chose
                 * in the checkboxes*/
                 var i;
+                /* getting an array of checkboxes from the html*/
                 var checkboxArray = $('.checkbox');
                 var chosenCourses = new Array(); // filling this string array with the names
                 for(i=0; i<$scope.courseRegList.length; i++)
@@ -28,7 +25,7 @@ angular.module('courseReg', [])
                     }
                 }
 
-                emailjs.send("gmail","gmail",{
+                emailjs.send("gmail","regCourse",{
                     name:$("#username").val(),
                     email:$("#email").val(),
                     tel:$("#tel").val(),
