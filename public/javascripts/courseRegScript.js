@@ -1,4 +1,4 @@
-var sAlert = require("sweetalert");
+
 
 angular.module('courseReg', [])
     .controller('CoureRegController', ['$scope', '$http', function($scope, $http){
@@ -26,7 +26,7 @@ angular.module('courseReg', [])
                         chosenCourses.push(checkboxArray[i].defaultValue); // save course name
                     }
                 }
-                sAlert.swal("המייל נשלח בהצלחה");
+                swal("המייל נשלח בהצלחה");
                 emailjs.send("gmail","regCourse",{
                     name:$("#username").val(),
                     email:$("#email").val(),
