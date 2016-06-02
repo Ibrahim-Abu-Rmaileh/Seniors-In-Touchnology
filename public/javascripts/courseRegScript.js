@@ -1,5 +1,4 @@
 
-
 angular.module('courseReg', [])
     .controller('CoureRegController', ['$scope', '$http', function($scope, $http){
         $scope.courseRegList;
@@ -55,7 +54,7 @@ angular.module('courseReg', [])
                 .catch(function(err) {
                     console.log('Get courses error.');
                 });
-            swal("המייל נשלח בהצלחה");
+            sweetAlert("המייל נשלח בהצלחה");
         };
         $scope.loadCourseReg();
     }]);
