@@ -34,6 +34,13 @@ angular.module('volunteersReg', [])
                 }).then(
                     function(response) {
                         alert("המייל נשלח בהצלחה");
+                        //clear text areas
+                        $("#username").val('');
+                        $("#email").val('');
+                        $("#tel").val('');
+                        $("#notes").val('');
+                        for(i=0; i<$scope.volunteersRegList.length; i++)
+                            checkboxArray[i].checked = false;
                     },
                     function(error) {
                         alert("נכשל");
@@ -46,6 +53,7 @@ angular.module('volunteersReg', [])
             $http.get('/getvolunteers')
                 .success(function(res){
                     $scope.volunteersRegList = res;
+                    $("#sendEmail").click(clickListener);
                 })
                 .catch(function(err) {
                     console.log('Get courses error.');
