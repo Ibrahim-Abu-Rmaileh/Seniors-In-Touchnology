@@ -1,3 +1,5 @@
+var sAlert = require("sweetalert");
+
 angular.module('courseReg', [])
     .controller('CoureRegController', ['$scope', '$http', function($scope, $http){
         $scope.courseRegList;
@@ -33,10 +35,10 @@ angular.module('courseReg', [])
                     notes:$("#notes").val()
                 }).then(
                     function(response) {
-                        alert("המייל נשלח בהצלחה");
+                        sAlert.swal("המייל נשלח בהצלחה");
                     },
                     function(error) {
-                        alert("נכשל");
+                        sAlert.swal("נכשל");
                     }
                 );
             }
