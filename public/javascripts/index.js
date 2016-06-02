@@ -1,5 +1,5 @@
 var MANAGERS = [];
-//var LOGIN = false;
+var LOGIN = false;
 
 var app = angular.module('Index', []);
 

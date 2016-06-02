@@ -23,7 +23,9 @@
 <!-- Start google scripts -->
 
 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+<a href="#" onclick="signOut()">Sign Out</a>
 
+<a href="managementPanel" class="myButton">Panel</a>
 
 <script>
     function onSignIn(googleUser) {
@@ -44,7 +46,7 @@
         if((MANAGERS.indexOf(profile.getEmail()) > -1))
         {
             console.log('LOGGING IN');
-            window.location.href= "panelManagement";
+            LOGIN = true;
         }
         else
             signOut();
