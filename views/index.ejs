@@ -30,7 +30,7 @@
 </head>
 
 
-<body ng-controller="IndexController as index">
+<body dir="rtl" ng-controller="IndexController as index" >
 
 <!-- Start google scripts -->
 
@@ -73,16 +73,17 @@
 <!-- end google scripts -->
 
 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-<a href="#" onclick="signOut()">Sign Out</a>
+<a href="#" onclick="signOut()" class="buttonPanel">יציאה</a>
 
 
 
 
-<a href="panelManagement" class="myButton" ng-show="access">Panel</a>
+<a href="panelManagement" class="myButton" ng-show="access">פאנל</a>
 <div ng-show="isAdmin()">
     Hello
 </div>
-<img src="/stylesheets/logo.png" class="img-responsive">
+
+<img src="/stylesheets/logo.png" class="img-responsive" >
 <li><hr></li>
 
 
