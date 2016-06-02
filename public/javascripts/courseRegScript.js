@@ -26,7 +26,7 @@ angular.module('courseReg', [])
                 }
 
 
-                emailjs.send("gmail","regCourse",{
+                emailjs.send("gmail","gmail",{
                     name:$("#username").val(),
                     email:$("#email").val(),
                     tel:$("#tel").val(),
