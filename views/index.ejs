@@ -6,10 +6,14 @@
     <script src="/javascripts/angular.min.js" type="text/javascript"></script>
     <script src="/javascripts/index.js" type="text/javascript"></script>
     <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
+<<<<<<< HEAD
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
+=======
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+>>>>>>> 9bb0b33d6fc322eadcd8c540c28a3b9c26111c5c
     <!-- Start google scripts -->
 
     <meta name="google-signin-scope" content="profile email">
@@ -57,6 +61,7 @@
         {
             console.log('LOGGING IN');
             LOGIN = true;
+            //localStorage.setItem("Login", LOGIN);
         }
         else
             signOut();
@@ -66,6 +71,7 @@
 <script>
     function signOut() {
         LOGIN = false;
+        //localStorage.setItem("Login", LOGIN);
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function () {
             console.log('User signed out.');
@@ -76,14 +82,12 @@
 <!-- end google scripts -->
 
 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-<a href="#" onclick="signOut()" class="buttonPanel">יציאה</a>
-
-
-
-<a href="panelManagement" class="btn btn-info" class="buttonPanel" ng-show="access">פאנל</a>
-<div ng-show="isAdmin()">
-    Hello
+<br>
+<div id="panelButtons" ng-show="access">
+    <a href="#" onclick="signOut()" class="btn btn-info" class="buttonPanel">יציאה</a>
+    <a href="panelManagement" class="btn btn-info" class="buttonPanel">פאנל</a>
 </div>
+<br>
 
 <img src="/stylesheets/logo.png" class="img-responsive" >
 <li><hr></li>

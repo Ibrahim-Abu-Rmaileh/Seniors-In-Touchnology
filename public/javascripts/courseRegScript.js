@@ -11,6 +11,7 @@ angular.module('courseReg', [])
 
             if(e.target.id == "sendEmail")
             {
+
                 /*First, we need to get list of courses that the user chose
                 * in the checkboxes*/
                 var i;
@@ -19,13 +20,14 @@ angular.module('courseReg', [])
                 var chosenCourses = new Array(); // filling this string array with the names
                 for(i=0; i<$scope.courseRegList.length; i++)
                 {
+
                     if(checkboxArray[i].checked == true) // if checkbox set to true
                     {
                         chosenCourses.push(checkboxArray[i].defaultValue); // save course name
                     }
                 }
 
-                emailjs.send("gmail","gmail",{
+                emailjs.send("gmail","regCourse",{
                     name:$("#username").val(),
                     email:$("#email").val(),
                     tel:$("#tel").val(),
@@ -34,6 +36,13 @@ angular.module('courseReg', [])
                 }).then(
                     function(response) {
                         alert("המייל נשלח בהצלחה");
+                        //clear text areas
+                        $("#username").val('');
+                        $("#email").val('');
+                        $("#tel").val('');
+                        $("#notes").val('');
+                        for(i=0; i<$scope.courseRegList.length; i++)
+                            checkboxArray[i].checked = false;
                     },
                     function(error) {
                        alert("נכשל");
@@ -48,7 +57,7 @@ angular.module('courseReg', [])
                 .success(function(res){
                     $scope.courseRegList = res;
                     $("#sendEmail").click(clickListener);
-                    console.log($scope.courseRegList);
+
                 })
                 .catch(function(err) {
                     console.log('Get courses error.');

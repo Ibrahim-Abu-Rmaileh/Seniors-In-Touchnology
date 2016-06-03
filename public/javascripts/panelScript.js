@@ -1,5 +1,10 @@
 angular.module('Panel', [])
-.controller('PanelController', ['$scope', '$http', function($scope, $http){
+.controller('PanelController', ['$scope', '$http', '$window', function($scope, $http, $window){
+    $scope.access = JSON.parse(localStorage.getItem("Access"));
+    console.log($scope.access);
+    if(!$scope.access)
+        $window.location.href = "../";
+
     $scope.adminObj = {};
     $scope.adminObj.name = "";
     $scope.adminObj.email = "";
