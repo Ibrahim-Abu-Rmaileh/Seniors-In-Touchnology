@@ -73,14 +73,12 @@
 <!-- end google scripts -->
 
 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-<a href="#" onclick="signOut()" class="buttonPanel">יציאה</a>
-
-
-
-<a href="panelManagement" class="btn btn-info" class="buttonPanel" ng-show="access">פאנל</a>
-<div ng-show="isAdmin()">
-    Hello
+<br>
+<div id="panelButtons" ng-show="access">
+    <a href="#" onclick="signOut()" class="btn btn-info" class="buttonPanel">יציאה</a>
+    <a href="panelManagement" class="btn btn-info" class="buttonPanel">פאנל</a>
 </div>
+<br>
 
 <img src="/stylesheets/logo.png" class="img-responsive" >
 <li><hr></li>
