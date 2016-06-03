@@ -1,10 +1,5 @@
-angular.module('Jobs', []).controller('JobsController', ['$scope', '$http', '$window', function($scope, $http, $window)
+angular.module('Jobs', []).controller('JobsController', ['$scope', '$http', function($scope, $http)
     {
-        $scope.access = JSON.parse(localStorage.getItem("Access"));
-        console.log($scope.access);
-        if(!$scope.access)
-            $window.location.href = "../";
-
         $scope.jobObj = {};
         $scope.jobObj.title = "";
         $scope.jobObj.location= "";

@@ -1,10 +1,5 @@
 angular.module('Course', [])
-    .controller('CourseController', ['$scope', '$http', '$window', function($scope, $http, $window){
-        $scope.access = JSON.parse(localStorage.getItem("Access"));
-        console.log($scope.access);
-        if(!$scope.access)
-            $window.location.href = "../";
-
+    .controller('CourseController', ['$scope', '$http', function($scope, $http){
         $scope.courseObj = {};
         $scope.courseObj.name = "";
         $scope.courseObj.details = "";

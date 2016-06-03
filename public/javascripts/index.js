@@ -20,7 +20,6 @@ var app = angular.module('Index', []).controller('IndexController', ['$scope', '
 
     $interval(function(){
         $scope.access = LOGIN;
-        localStorage.setItem("Access", $scope.access);
     }, 1000);
 
     $scope.loadPanel();

@@ -1,11 +1,5 @@
-angular.module('newsLetter', [])
-    .controller('newsLetterController', ['$scope', '$http', '$window', function($scope, $http, $window)
+angular.module('newsLetter', []).controller('newsLetterController', ['$scope', '$http', function($scope, $http)
 {
-    $scope.access = JSON.parse(localStorage.getItem("Access"));
-    console.log($scope.access);
-    if(!$scope.access)
-        $window.location.href = "../";
-
     $scope.newsLetterObj = {};
     $scope.newsLetterObj.title = "";
     $scope.newsLetterObj.description = "";

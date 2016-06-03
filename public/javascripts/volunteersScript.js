@@ -1,10 +1,5 @@
 angular.module('Voln', [])
-    .controller('VolunteersController', ['$scope', '$http', '$window', function($scope, $http, $window){
-        $scope.access = JSON.parse(localStorage.getItem("Access"));
-        console.log($scope.access);
-        if(!$scope.access)
-            $window.location.href = "../";
-
+    .controller('VolunteersController', ['$scope', '$http', function($scope, $http){
         $scope.volObj = {};
         $scope.volObj.title = "";
         $scope.volObj.location = "";
