@@ -1,5 +1,10 @@
 angular.module('Course', [])
-    .controller('CourseController', ['$scope', '$http', function($scope, $http){
+    .controller('CourseController', ['$scope', '$http', '$window', function($scope, $http, $window){
+        $scope.access = JSON.parse(localStorage.getItem("Access"));
+        console.log($scope.access);
+        if(!$scope.access)
+            $window.location.href = "../";
+
         $scope.courseObj = {};
         $scope.courseObj.name = "";
         $scope.courseObj.details = "";
@@ -8,7 +13,7 @@ angular.module('Course', [])
         $scope.newCourseId;
 
 
-        
+
         $scope.loadPanel = function(){
             console.log('Panel has successfuly loaded.');
             $http.get('/course')
