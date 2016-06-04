@@ -11,6 +11,16 @@ angular.module('courseReg', [])
 
             if(e.target.id == "sendEmail")
             {
+                if($('#username').val() == '')
+                {
+                    alert('Please insert your name');
+                    return;
+                }
+                if($('#email').val() == '')
+                {
+                    alert('Please insert your email');
+                    return;
+                }
 
                 /*First, we need to get list of courses that the user chose
                 * in the checkboxes*/
@@ -26,6 +36,14 @@ angular.module('courseReg', [])
                         chosenCourses.push(checkboxArray[i].defaultValue); // save course name
                     }
                 }
+
+                if(chosenCourses.length == 0)
+                {
+                    alert('Please choose at least one course');
+                    return;
+                }
+                confirm("Are you sure you want to send this email to the organization?" +
+                    " Before clicking ok, please check that all fields are correct");
 
                 emailjs.send("gmail","regCourse",{
                     name:$("#username").val(),

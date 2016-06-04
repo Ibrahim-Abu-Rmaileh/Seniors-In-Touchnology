@@ -11,6 +11,17 @@ angular.module('volunteersReg', [])
 
             if(e.target.id == "sendEmail")
             {
+                if($('#username').val() == '')
+                {
+                    alert('Please insert your name');
+                    return;
+                }
+                if($('#email').val() == '')
+                {
+                    alert('Please insert your email');
+                    return;
+                }
+
                 /*First, we need to get list of volunteer exhibitions that the user chose
                  * in the checkboxes*/
                 var i;
@@ -24,6 +35,14 @@ angular.module('volunteersReg', [])
                         chosenVols.push(checkboxArray[i].defaultValue); // save course name
                     }
                 }
+
+                if(chosenVols.length == 0)
+                {
+                    alert('Please choose at least one volunteer exhibition');
+                    return;
+                }
+                confirm("Are you sure you want to send this email to the organization?" +
+                    " Before clicking ok, please check that all fields are correct");
 
                 emailjs.send("gmail","regVol",{
                     name:$("#username").val(),

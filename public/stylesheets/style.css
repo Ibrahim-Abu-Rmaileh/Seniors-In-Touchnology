@@ -219,3 +219,11 @@ footer{
   margin-left:100px;
 }
 
+.asterik{
+  display: inline;
+  color:red;
+}
+
+.register{
+  font-size:20px;
+}
