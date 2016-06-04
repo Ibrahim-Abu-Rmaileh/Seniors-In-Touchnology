@@ -42,8 +42,10 @@ angular.module('courseReg', [])
                     alert('Please choose at least one course');
                     return;
                 }
-                confirm("Are you sure you want to send this email to the organization?" +
-                    " Before clicking ok, please check that all fields are correct");
+
+                if(!confirm("Are you sure you want to send this email to the organization?" +
+                        " Before clicking ok, please check that all fields are correct"))
+                    return;
 
                 emailjs.send("gmail","regCourse",{
                     name:$("#username").val(),
