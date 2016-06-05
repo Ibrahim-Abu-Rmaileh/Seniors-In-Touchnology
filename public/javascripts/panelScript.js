@@ -37,7 +37,11 @@ angular.module('Panel', [])
         };
 
         $scope.delAdmin = function(admin){
-            console.log('I am at method delAdmin');
+            if($scope.adminsList.length == 1)
+            {
+                alert('Can not delete the only admin.');
+                return;
+            }
             $http.post('/deladmin', admin)
                 .success(function(res) {
                     console.log('Admin deleted successfuly.');
