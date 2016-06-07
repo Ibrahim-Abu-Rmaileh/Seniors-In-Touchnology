@@ -13,12 +13,18 @@ angular.module('courseReg', [])
             {
                 if($('#username').val() == '')
                 {
-                    sweetAlert('Hello');
+                    swal({
+                        title:'Please insert your name',
+                        type: 'error'
+                    });
                     return;
                 }
                 if($('#email').val() == '')
                 {
-                    alert('Please insert your email');
+                    swal({
+                        title:'Please insert your email',
+                        type: 'error'
+                    });
                     return;
                 }
 
@@ -27,7 +33,7 @@ angular.module('courseReg', [])
                 var i;
                 /* getting an array of checkboxes from the html*/
                 var checkboxArray = $('.checkbox');
-                var chosenCourses = new Array(); // filling this string array with the names
+                var chosenCourses = []; // filling this string array with the names
                 for(i=0; i<$scope.courseRegList.length; i++)
                 {
 
@@ -39,37 +45,63 @@ angular.module('courseReg', [])
 
                 if(chosenCourses.length == 0)
                 {
-                    alert('Please choose at least one course');
+                    swal({
+                        title:'Please choose at least one course',
+                        type: 'error'
+                    });
                     return;
                 }
 
-                if(!confirm("Are you sure you want to send this email to the organization?" +
-                        " Before clicking ok, please check that all fields are correct"))
-                    return;
-
-                emailjs.send("gmail","regCourse",{
-                    name:$("#username").val(),
-                    email:$("#email").val(),
-                    tel:$("#tel").val(),
-                    course:chosenCourses,
-                    notes:$("#notes").val()
-                }).then(
-                    function(response) {
-                        alert("המייל נשלח בהצלחה");
-                        //clear text areas
-                        $("#username").val('');
-                        $("#email").val('');
-                        $("#tel").val('');
-                        $("#notes").val('');
-                        for(i=0; i<$scope.courseRegList.length; i++)
-                            checkboxArray[i].checked = false;
+                swal({
+                    title: 'Are you sure?',
+                    text: 'Before clicking yes, please check that all fields are correct',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: 'green',
+                    confirmButtonText: 'Yes',
+                    preConfirm: function(){
+                        return new Promise(function(resolve) {
+                            swal.enableLoading();
+                            setTimeout(function() {
+                                resolve();
+                            }, 2000);
+                        });
                     },
-                    function(error) {
-                       alert("נכשל");
-                    }
-                );
+                    allowOutsideClick: false
+                }).then(function(){
+                    alert("asds");
+                })
+
+                /*function(){
+                    emailjs.send("gmail","regCourse",{
+                        name:$("#username").val(),
+                        email:$("#email").val(),
+                        tel:$("#tel").val(),
+                        course:chosenCourses,
+                        notes:$("#notes").val()
+                    }).then(
+                        function(response) {
+                            swal({
+                                title: "המייל נשלח בהצלחה",
+                                type:'success',
+                                timer: 2000,
+                                showConfirmButton: false
+                            });
+                            //clear text areas
+                            $("#username").val('');
+                            $("#email").val('');
+                            $("#tel").val('');
+                            $("#notes").val('');
+                            for(i=0; i<$scope.courseRegList.length; i++)
+                                checkboxArray[i].checked = false;
+                        },
+                        function(error) {
+                            swal("נכשל");
+                        }
+                    );
+                }*/
             }
-        }
+        };
 
         $scope.loadCourseReg = function()
         {
