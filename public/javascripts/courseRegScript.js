@@ -13,7 +13,7 @@ angular.module('courseReg', [])
             {
                 if($('#username').val() == '')
                 {
-                    alert('Please insert your name');
+                    sweetAlert('Hello');
                     return;
                 }
                 if($('#email').val() == '')

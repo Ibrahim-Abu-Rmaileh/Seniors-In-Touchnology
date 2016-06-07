@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+//var sweetAlert = require('sweetalert');
 
 var routes = require('./routes/index');
 var panel = require('./routes/panel');
@@ -104,6 +105,12 @@ var volunteersSchema = new Schema({
 var Vol = mongoose.model('Vol', volunteersSchema);
 
 
+
+// TRY
+app.post('/tryalert', function(req, res){
+    console.log('Try Alert');
+   sweetAlert('HELLO');
+});
 
 ///*** function for Courses ***/////
 
@@ -212,7 +219,7 @@ app.post('/updateNewsLetter', function (req, res) {
 
     NewsLetter.remove({ _id: req.body.id}, function(err) {
         console.log(err);
-    })
+    });
     console.log(req.body);
     new NewsLetter({
         title: req.body.title,
@@ -262,7 +269,7 @@ app.post('/delJob', function (req, res) {
 
     Job.remove({ _id: req.body._id}, function(err) {
         console.log(err);
-    })
+    });
 
 });
 
@@ -272,7 +279,7 @@ app.post('/updatejob', function (req, res) {
 
     Job.remove({ _id: req.body.id}, function(err) {
         console.log(err);
-    })
+    });
     console.log(req.body);
     new Job({
         title: req.body.title,
