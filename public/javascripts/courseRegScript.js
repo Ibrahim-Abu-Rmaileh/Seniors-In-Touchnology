@@ -50,17 +50,47 @@ angular.module('courseReg', [])
                     });
                     return;
                 }
-               /* swal({
+               swal({
                     title: 'Are you sure?',
                     text: 'Before clicking yes, please check that all fields are correct',
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: 'green',
                     confirmButtonText: 'Yes',
-                    allowOutsideClick: false
-                }).then(function(){
-                    console.log("asdaasdas");
-                });*/
+                    allowOutsideClick: false,
+                    closeOnConfirm: false,
+                   showLoaderOnConfirm: true
+                },function(){
+                   /*if user clicked 'Yes' then send email*/
+                   setTimeout(function(){
+                       emailjs.send("gmail","regCourse",{
+                        name:$("#username").val(),
+                        email:$("#email").val(),
+                        tel:$("#tel").val(),
+                        course:chosenCourses,
+                        notes:$("#notes").val()
+                        }).then(
+                        function(response) {
+                        swal({
+                        title: "המייל נשלח בהצלחה",
+                        type:'success',
+                        timer: 2000,
+                        showConfirmButton: false
+                        });
+                        //clear text areas
+                        $("#username").val('');
+                        $("#email").val('');
+                        $("#tel").val('');
+                        $("#notes").val('');
+                        for(i=0; i<$scope.courseRegList.length; i++)
+                        checkboxArray[i].checked = false;
+                        },
+                        function(error) {
+                        swal("נכשל");
+                        }
+                        );
+                   }, 2000);
+                });
             }
         };
 
@@ -79,32 +109,7 @@ angular.module('courseReg', [])
         $scope.loadCourseReg();
     }]);
 
-/*emailjs.send("gmail","regCourse",{
-    name:$("#username").val(),
-    email:$("#email").val(),
-    tel:$("#tel").val(),
-    course:chosenCourses,
-    notes:$("#notes").val()
-}).then(
-    function(response) {
-        swal({
-            title: "המייל נשלח בהצלחה",
-            type:'success',
-            timer: 2000,
-            showConfirmButton: false
-        });
-        //clear text areas
-        $("#username").val('');
-        $("#email").val('');
-        $("#tel").val('');
-        $("#notes").val('');
-        for(i=0; i<$scope.courseRegList.length; i++)
-            checkboxArray[i].checked = false;
-    },
-    function(error) {
-        swal("נכשל");
-    }
-);*/
+
 
 /*
  swal({
