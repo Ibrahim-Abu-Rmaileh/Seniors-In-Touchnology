@@ -29,7 +29,17 @@ angular.module('courseReg', [])
                     });
                     return;
                 }
-
+                var emailRegularExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                var validEmail = (emailRegularExpression.test($('#email').val()));
+                if(!validEmail)
+                {
+                    swal({
+                        title:'הכנס אימייל תקין בבקשה',
+                        type: 'error',
+                        confirmButtonText:'אוקיי'
+                    });
+                    return;
+                }
                 /*First, we need to get list of courses that the user chose
                 * in the checkboxes*/
                 var i;
