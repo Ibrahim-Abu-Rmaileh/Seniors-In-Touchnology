@@ -14,16 +14,18 @@ angular.module('courseReg', [])
                 if($('#username').val() == '')
                 {
                     swal({
-                        title:'Please insert your name',
-                        type: 'error'
+                        title:'הכנס את שמך בבקשה',
+                        type: 'error',
+                        confirmButtonText:'אוקיי'
                     });
                     return;
                 }
                 if($('#email').val() == '')
                 {
                     swal({
-                        title:'Please insert your email',
-                        type: 'error'
+                        title:'הכנס אימייל בבקשה',
+                        type: 'error',
+                        confirmButtonText:'אוקיי'
                     });
                     return;
                 }
@@ -45,18 +47,20 @@ angular.module('courseReg', [])
                 if(chosenCourses.length == 0)
                 {
                     swal({
-                        title:'Please choose at least one course',
-                        type: 'error'
+                        title:'בחר לפחות קורס אחד',
+                        type: 'error',
+                        confirmButtonText:'אוקיי'
                     });
                     return;
                 }
                swal({
-                    title: 'Are you sure?',
-                    text: 'Before clicking yes, please check that all fields are correct',
+                    title: 'האם אתה בטוח?',
+                    text: 'לפני לחיצת כן, אנא בדוק שמילאת נכון את כל השדות',
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: 'green',
-                    confirmButtonText: 'Yes',
+                    confirmButtonText: 'כן',
+                    cancelButtonText:'בטל',
                     allowOutsideClick: false,
                     closeOnConfirm: false,
                    showLoaderOnConfirm: true
@@ -75,7 +79,8 @@ angular.module('courseReg', [])
                         title: "המייל נשלח בהצלחה",
                         type:'success',
                         timer: 2000,
-                        showConfirmButton: false
+                        showConfirmButton: false,
+                            confirmButtonText:'אוקיי'
                         });
                         //clear text areas
                         $("#username").val('');
@@ -86,7 +91,13 @@ angular.module('courseReg', [])
                         checkboxArray[i].checked = false;
                         },
                         function(error) {
-                        swal("נכשל");
+                        swal({
+                            title:'נכשל',
+                            type: 'error',
+                            timer:2000,
+                            showConfirmButton: false,
+                            confirmButtonText:'אוקיי'
+                        });
                         }
                         );
                    }, 2000);
