@@ -9,6 +9,8 @@ angular.module('Voln', [])
         $scope.volObj.title = "";
         $scope.volObj.location = "";
         $scope.volObj.description = "";
+
+        $scope.volObj.show=false;
         $scope.volunteersList;
 
         $scope.addVol = function(){

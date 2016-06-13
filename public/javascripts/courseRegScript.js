@@ -6,8 +6,8 @@ angular.module('courseReg', [])
         var clickListener = function(e)
         {
             /*If send email button was clicked, use the API of emailJS to send
-            * email to a specific email we configured before.
-            * email sended to - sitjce@gmail.com*/
+             * email to a specific email we configured before.
+             * email sended to - sitjce@gmail.com*/
 
             if(e.target.id == "sendEmail")
             {
@@ -41,7 +41,7 @@ angular.module('courseReg', [])
                     return;
                 }
                 /*First, we need to get list of courses that the user chose
-                * in the checkboxes*/
+                 * in the checkboxes*/
                 var i;
                 /* getting an array of checkboxes from the html*/
                 var checkboxArray = $('.checkbox');
@@ -63,7 +63,11 @@ angular.module('courseReg', [])
                     });
                     return;
                 }
+<<<<<<< HEAD
                swal({
+=======
+                swal({
+>>>>>>> 7355a785299bc51ddf0e9f268f7ccb8911b6560e
                     title: 'האם אתה בטוח?',
                     text: 'לפני לחיצת כן, אנא בדוק שמילאת נכון את כל השדות',
                     type: 'warning',
@@ -73,17 +77,18 @@ angular.module('courseReg', [])
                     cancelButtonText:'בטל',
                     allowOutsideClick: false,
                     closeOnConfirm: false,
-                   showLoaderOnConfirm: true
+                    showLoaderOnConfirm: true
                 },function(){
-                   /*if user clicked 'Yes' then send email*/
-                   setTimeout(function(){
-                       emailjs.send("gmail","regCourse",{
-                        name:$("#username").val(),
-                        email:$("#email").val(),
-                        tel:$("#tel").val(),
-                        course:chosenCourses,
-                        notes:$("#notes").val()
+                    /*if user clicked 'Yes' then send email*/
+                    setTimeout(function(){
+                        emailjs.send("gmail","regCourse",{
+                            name:$("#username").val(),
+                            email:$("#email").val(),
+                            tel:$("#tel").val(),
+                            course:chosenCourses,
+                            notes:$("#notes").val()
                         }).then(
+<<<<<<< HEAD
                         function(response) {
                         swal({
                         title: "המייל נשלח בהצלחה",
@@ -109,8 +114,35 @@ angular.module('courseReg', [])
                             confirmButtonText:'אוקיי'
                         });
                         }
+=======
+                            function(response) {
+                                swal({
+                                    title: "המייל נשלח בהצלחה",
+                                    type:'success',
+                                    timer: 2000,
+                                    showConfirmButton: false,
+                                    confirmButtonText:'אוקיי'
+                                });
+                                //clear text areas
+                                $("#username").val('');
+                                $("#email").val('');
+                                $("#tel").val('');
+                                $("#notes").val('');
+                                for(i=0; i<$scope.courseRegList.length; i++)
+                                    checkboxArray[i].checked = false;
+                            },
+                            function(error) {
+                                swal({
+                                    title:'נכשל',
+                                    type: 'error',
+                                    timer:2000,
+                                    showConfirmButton: false,
+                                    confirmButtonText:'אוקיי'
+                                });
+                            }
+>>>>>>> 7355a785299bc51ddf0e9f268f7ccb8911b6560e
                         );
-                   }, 2000);
+                    }, 2000);
                 });
             }
         };
@@ -127,6 +159,15 @@ angular.module('courseReg', [])
                     console.log('Get courses error.');
                 });
         };
+
+
+        $scope.showCourse = function(course) {
+            if (!course.show)
+                course.show = true;
+            else
+                course.show = false;
+        }
+
         $scope.loadCourseReg();
     }]);
 
@@ -139,4 +180,4 @@ angular.module('courseReg', [])
  type:'info',
  showCancelButton: false
  });
-* */
+ * */

@@ -8,9 +8,41 @@ angular.module('Course', [])
         $scope.courseObj = {};
         $scope.courseObj.name = "";
         $scope.courseObj.details = "";
-        $scope.courseObj.id = 0;
+        $scope.courseObj.show=false;
+
         $scope.coursesList;
-        $scope.newCourseId;
+
+
+        $scope.courseUpdObj={};
+        $scope.courseUpdObj.name="";
+        $scope.courseUpdObj.details = "";
+        $scope.courseUpdObj.id = "0";
+        $scope.courseUpdObj.show = false;
+
+        $scope.showUpdateCourse= function(course){
+
+            $scope.courseUpdObj.show = true;
+            $scope.courseUpdObj.name = course.name;
+            $scope.courseUpdObj.details=course.details;
+            $scope.courseUpdObj.id=course._id;
+        };
+
+        $scope.updateCourse = function(){
+            $scope.courseUpdObj.show = false;
+    console.log($scope.courseUpdObj);
+            console.log('update has successfuly loaded.');
+            $http.post('/upCourse', $scope.courseUpdObj)
+                .success(function(res) {
+                    console.log('course updated.');
+                    $scope.loadPanel();
+
+                })
+                .catch(function(err) {
+
+                    console.log('update course error.');
+                });
+        };
+
 
 
 

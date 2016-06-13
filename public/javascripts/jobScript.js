@@ -9,7 +9,8 @@ angular.module('Jobs', []).controller('JobsController', ['$scope', '$http', '$wi
     $scope.jobObj.title = "";
     $scope.jobObj.location= "";
     $scope.jobObj.description = "";
-
+    $scope.jobObj.show =false;
+    
     $scope.jobsList;
     $scope.delObject;
 

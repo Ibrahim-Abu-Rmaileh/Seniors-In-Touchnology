@@ -24,6 +24,9 @@ angular.module('Panel', [])
         };
 
         $scope.addAdmin = function(){
+            if(!$scope.access)
+                return;
+            $scope.adminObj.email = $scope.adminObj.email.toLowerCase();
             $http.post('/postadmin', $scope.adminObj)
                 .success(function(res) {
                     $scope.adminObj.name = "";
@@ -37,6 +40,8 @@ angular.module('Panel', [])
         };
 
         $scope.delAdmin = function(admin){
+            if(!$scope.access)
+                return;
             if($scope.adminsList.length == 1)
             {
                 alert('Can not delete the only admin.');

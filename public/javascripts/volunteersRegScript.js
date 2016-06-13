@@ -127,9 +127,14 @@ angular.module('volunteersReg', [])
                     console.log('Get courses error.');
                 });
         };
+
+
+$scope.showVol = function(vol) {
+            if (!vol.show)
+                vol.show = true;
+            else
+                vol.show = false;
+        }
+
         $scope.loadvolunteersReg();
     }]);
-
-
-
-
