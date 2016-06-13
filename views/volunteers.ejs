@@ -1,28 +1,109 @@
 <!DOCTYPE html>
 <html ng-app="Voln">
 <head>
-    <title><%= title %></title>
+
+    <title>מתנדבים</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/openSans/fontstyle.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
+
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="/javascripts/angular.min.js" type="text/javascript"></script>
     <script src="/javascripts/volunteersScript.js" type="text/javascript"></script>
 </head>
-<body ng-controller="VolunteersController as v">
+<body ng-controller="VolunteersController as v" dir="rtl">
 
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
-<h3>Add new volunteering: </h3> <br>
-Title:  <input type="text" id="txtTitle" ng-model="volObj.title"> Location <input type = "text" id = "txtLocation" ng-model="volObj.location"> Description <input type = "text" id = "txtDesc" ng-model="volObj.description"> <br>
-<button ng-click="addVol()" id="cmdAdd">Add</button>
-<br><br><br>
-<h3>Edit courses list:</h3> <br>
-<div id="volunteers">
-    <table>
-        <tr><th>Title </th><th>Location</th> <th>Description</th> <th>Delete</th></tr>
+
+
+<div class="container">
+
+    <a href="panelManagement" ><button type="button" class="btn btn-default">          חזרה לפנאל הניהול  </button></a>
+
+    <div class="panelTitles"> התנדבויות</div>
+    <br>
+    <hr>
+
+    הוספת התנדבות חדשה
+    <br>
+
+    <table class="table" dir="rtl">
+        <tr>
+
+            <td> שם ההתנדבות</td>
+            <td><input type="text" id="txtTitle" ng-model="volObj.title">  </td>
+        </tr>
+
+        <tr>
+            <td> מיקום</td>
+
+            <td> <input type = "text" id = "txtLocation" ng-model="volObj.location"></td>
+        </tr>
+
+        <tr>
+            <td> פרטים</td>
+            <td>   <textarea type="text" id = "txtDetails" ng-model="volObj.description"></textarea></td>
+        </tr>
+
+    </table>
+
+
+    <button type="button" class="btn-lg btn-success" ng-click="addVol()" id="cmdAdd" >הוספה</button>
+
+    <br><br>
+    <hr>
+
+    <br>   רשימת התנדבויות קיימות
+
+
+    <table class="table" dir="rtl">
+        <tr><th>   שם ההתנדבות</th><th> מיקום</th><th> פרטים</th> <th>עדכון</th> <th>מחיקה</th></tr>
         <tr ng-repeat="vol in volunteersList">
-            <td>{{vol.title}}</td> <td>{{vol.location}}</td> <td>{{vol.description}}</td> <td> <button id="delVol" ng-click="delVol(vol)">del</button> </td>
+            <td>{{vol.title}}</td> <td>{{vol.location}}</td> <td>{{vol.description}}</td><td>    <a href="#updVol"><button type="button" class="btn-xs btn-info" ng-click="showUpdateVol(vol)">עדכן</button></a></td><td>    <button type="button" class="btn-xs btn-danger" id="delVol" ng-click="delVol(vol)">מחק</button> </td>
+
+
         </tr>
     </table>
-    <a href="panelManagement" class="myButton">Back to panel</a>
-</div>
+
+
+    <div  id="updVol" ng-show="volUpdObj.show">
+
+        <br><br>           עדכון
+        <table class="table">
+
+
+            <tr>
+
+                <td>שם ההתנדבות </td>
+                <td><input type="text" id="titleId" ng-model="volUpdObj.title">  </td>
+            </tr>
+
+            <tr>
+
+                    <td> מיקום</td>
+
+
+                <td>            <input type="text" id="locId" ng-model="volUpdObj.location"> </td>
+            </tr>
+
+            <tr>
+
+            <td> פרטים</td>
+
+                <td>            <textarea type="text" id="txtDetails" ng-model="volUpdObj.description"></textarea> </td>
+            </tr>
+
+        </table>
+
+        <button type="button" class="btn-lg btn-success" ng-click="updateVol()" id="cmdUpd" >        עדכן</button>
+    </div>
+
+
+
+
+    </div>
 </body>
 </html>

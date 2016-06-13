@@ -257,6 +257,27 @@ app.post('/upCourse', function (req, res) {
 });
 
 
+//update volunter by object id
+app.post('/updateVol', function (req, res) {
+
+    console.log(req.body);
+    Vol.remove({ _id: req.body.id}, function(err) {
+        console.log(err);
+    });
+
+    new Vol({
+        title: req.body.title,
+        location: req.body.location,
+        description:req.body.description
+
+    }).save(function(err){
+        if(err)
+            console.log(err);
+        else
+            res.json('saved');
+    });
+
+});
 
 
 
