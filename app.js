@@ -235,6 +235,30 @@ app.post('/updateNewsLetter', function (req, res) {
 });
 
 
+//update course by object id
+app.post('/upCourse', function (req, res) {
+
+    console.log(req.body);
+    Course.remove({ _id: req.body.id}, function(err) {
+        console.log(err);
+    });
+
+    new Course({
+        name: req.body.name,
+        details: req.body.details
+
+    }).save(function(err){
+        if(err)
+            console.log(err);
+        else
+            res.json('saved');
+    });
+
+});
+
+
+
+
 
 ///*** function for jobs ***/////
 

@@ -1,14 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Job Offers</title>
+    <title>News Letter</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/openSans/fontstyle.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
+
     <script src="/javascripts/angular.min.js" type="text/javascript"></script>
 
+    <script src="/javascripts/angular-animate.min.js"></script>
+    <script src="/javascripts/angular-sanitize.min.js"></script>
+    <script src="/javascripts/angular-route.min.js"></script>
+    <script src="/javascripts/ui-bootstrap-tpls-1.2.4.js"></script>
+
+
+    <script src="/javascripts/newsLetterScript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
 </head>
-<body>
-<a href="../" class="myButton">Back to main</a>
-This is the News Letters page
+<body dir="rtl" >
+
+
+<header class="sidebar">
+    <div>
+        <nav class="navbar navbar-custom font-alt">
+            <div class="navbar-header">
+                <a class="logo" href="/">
+                    <img src="/images/logo.jpg" alt="mtova">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="custom-collapse">
+                <ul class="nav navbar-nav">
+                    <li ng-class="url == '/' ? 'active' : ''"><a href="/">דף הבית</a></li>
+                    <li ng-class="url == '/course' ? 'active' : ''"><a href="coursesReg">קורסים</a></li>
+                    <li ng-class="url == '/job' ? 'active' : ''"><a href="jobOffers">משרות פנויות</a></li>
+                    <li ng-class="url == '/volunteer' ? 'active' : ''"><a href="volunteersReg">התנדבות</a></li>
+                    <li ng-class="url == '/newsletter' ? 'active' : ''"><a href="newsLettersMain">ניוזליטר</a></li>
+                    <li ng-class="url == '/contact' ? 'active' : ''"><a href="#/contact">צרו קשר</a></li>
+                    <br>
+
+                </ul>
+            </div>
+        </nav>
+
+
+    </div>
+
+    <div class="copyright">
+        <p>© 2016 כל הזכויות שמורות למחשבה טובה</p>
+    </div>
+    </div>
+</header>
+
+
+
+<div class="wrapper">
+
+    <div class="article-headerNewsLetter">
+        <div class="overall"><h1><span>ניוזלטר</span></h1></div>
+    </div>
+    <div class="article-container">
+
+        מידעעעעעע
+    </div>
+
+</div>
 
 </body>
 </html>

@@ -13,12 +13,31 @@ angular.module('volunteersReg', [])
             {
                 if($('#username').val() == '')
                 {
-                    alert('Please insert your name');
+                    swal({
+                        title:'הכנס את שמך בבקשה',
+                        type: 'error',
+                        confirmButtonText:'אוקיי'
+                    });
                     return;
                 }
                 if($('#email').val() == '')
                 {
-                    alert('Please insert your email');
+                    swal({
+                        title:'הכנס אימייל בבקשה',
+                        type: 'error',
+                        confirmButtonText:'אוקיי'
+                    });
+                    return;
+                }
+                var emailRegularExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                var validEmail = (emailRegularExpression.test($('#email').val()));
+                if(!validEmail)
+                {
+                    swal({
+                        title:'הכנס אימייל תקין בבקשה',
+                        type: 'error',
+                        confirmButtonText:'אוקיי'
+                    });
                     return;
                 }
 
@@ -38,34 +57,63 @@ angular.module('volunteersReg', [])
 
                 if(chosenVols.length == 0)
                 {
-                    alert('Please choose at least one volunteer exhibition');
+                    swal({
+                        title:'בחר לפחות פעילות התנדבותית אחת',
+                        type: 'error',
+                        confirmButtonText:'אוקיי'
+                    });
                     return;
                 }
-                if(!confirm("Are you sure you want to send this email to the organization?" +
-                    " Before clicking ok, please check that all fields are correct"))
-                    return;
 
-                emailjs.send("gmail","regVol",{
-                    name:$("#username").val(),
-                    email:$("#email").val(),
-                    tel:$("#tel").val(),
-                    vol:chosenVols,
-                    notes:$("#notes").val()
-                }).then(
-                    function(response) {
-                        alert("המייל נשלח בהצלחה");
-                        //clear text areas
-                        $("#username").val('');
-                        $("#email").val('');
-                        $("#tel").val('');
-                        $("#notes").val('');
-                        for(i=0; i<$scope.volunteersRegList.length; i++)
-                            checkboxArray[i].checked = false;
-                    },
-                    function(error) {
-                        alert("נכשל");
-                    }
-                );
+                swal({
+                    title: 'האם אתה בטוח?',
+                    text: 'לפני לחיצת כן, אנא בדוק שמילאת נכון את כל השדות',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: 'green',
+                    confirmButtonText: 'כן',
+                    cancelButtonText:'בטל',
+                    allowOutsideClick: false,
+                    closeOnConfirm: false,
+                    showLoaderOnConfirm: true
+                },function(){
+                    /*if user clicked 'Yes' then send email*/
+                    setTimeout(function(){
+                        emailjs.send("gmail","regVol",{
+                            name:$("#username").val(),
+                            email:$("#email").val(),
+                            tel:$("#tel").val(),
+                            vol:chosenVols,
+                            notes:$("#notes").val()
+                        }).then(
+                            function(response) {
+                                swal({
+                                    title: "המייל נשלח בהצלחה",
+                                    type:'success',
+                                    timer: 2000,
+                                    confirmButtonText:'אוקיי',
+                                    showConfirmButton: false
+                                });
+                                //clear text areas
+                                $("#username").val('');
+                                $("#email").val('');
+                                $("#tel").val('');
+                                $("#notes").val('');
+                                for(i=0; i<$scope.volunteersRegList.length; i++)
+                                    checkboxArray[i].checked = false;
+                            },
+                            function(error) {
+                                swal({
+                                    title:'נכשל',
+                                    type: 'error',
+                                    confirmButtonText:'אוקיי',
+                                    timer:2000,
+                                    showConfirmButton: false
+                                });
+                            }
+                        );
+                    }, 2000);
+                });
             }
         }
 
@@ -79,9 +127,14 @@ angular.module('volunteersReg', [])
                     console.log('Get courses error.');
                 });
         };
+
+
+$scope.showVol = function(vol) {
+            if (!vol.show)
+                vol.show = true;
+            else
+                vol.show = false;
+        }
+
         $scope.loadvolunteersReg();
     }]);
-
-
-
-

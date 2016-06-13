@@ -6,30 +6,42 @@ angular.module('courseReg', [])
         var clickListener = function(e)
         {
             /*If send email button was clicked, use the API of emailJS to send
-            * email to a specific email we configured before.
-            * email sended to - sitjce@gmail.com*/
+             * email to a specific email we configured before.
+             * email sended to - sitjce@gmail.com*/
 
             if(e.target.id == "sendEmail")
             {
                 if($('#username').val() == '')
                 {
                     swal({
-                        title:'Please insert your name',
-                        type: 'error'
+                        title:'הכנס את שמך בבקשה',
+                        type: 'error',
+                        confirmButtonText:'אוקיי'
                     });
                     return;
                 }
                 if($('#email').val() == '')
                 {
                     swal({
-                        title:'Please insert your email',
-                        type: 'error'
+                        title:'הכנס אימייל בבקשה',
+                        type: 'error',
+                        confirmButtonText:'אוקיי'
                     });
                     return;
                 }
-
+                var emailRegularExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                var validEmail = (emailRegularExpression.test($('#email').val()));
+                if(!validEmail)
+                {
+                    swal({
+                        title:'הכנס אימייל תקין בבקשה',
+                        type: 'error',
+                        confirmButtonText:'אוקיי'
+                    });
+                    return;
+                }
                 /*First, we need to get list of courses that the user chose
-                * in the checkboxes*/
+                 * in the checkboxes*/
                 var i;
                 /* getting an array of checkboxes from the html*/
                 var checkboxArray = $('.checkbox');
@@ -45,51 +57,60 @@ angular.module('courseReg', [])
                 if(chosenCourses.length == 0)
                 {
                     swal({
-                        title:'Please choose at least one course',
-                        type: 'error'
+                        title:'בחר לפחות קורס אחד',
+                        type: 'error',
+                        confirmButtonText:'אוקיי'
                     });
                     return;
                 }
-               swal({
-                    title: 'Are you sure?',
-                    text: 'Before clicking yes, please check that all fields are correct',
+                swal({
+                    title: 'האם אתה בטוח?',
+                    text: 'לפני לחיצת כן, אנא בדוק שמילאת נכון את כל השדות',
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: 'green',
-                    confirmButtonText: 'Yes',
+                    confirmButtonText: 'כן',
+                    cancelButtonText:'בטל',
                     allowOutsideClick: false,
                     closeOnConfirm: false,
-                   showLoaderOnConfirm: true
+                    showLoaderOnConfirm: true
                 },function(){
-                   /*if user clicked 'Yes' then send email*/
-                   setTimeout(function(){
-                       emailjs.send("gmail","regCourse",{
-                        name:$("#username").val(),
-                        email:$("#email").val(),
-                        tel:$("#tel").val(),
-                        course:chosenCourses,
-                        notes:$("#notes").val()
+                    /*if user clicked 'Yes' then send email*/
+                    setTimeout(function(){
+                        emailjs.send("gmail","regCourse",{
+                            name:$("#username").val(),
+                            email:$("#email").val(),
+                            tel:$("#tel").val(),
+                            course:chosenCourses,
+                            notes:$("#notes").val()
                         }).then(
-                        function(response) {
-                        swal({
-                        title: "המייל נשלח בהצלחה",
-                        type:'success',
-                        timer: 2000,
-                        showConfirmButton: false
-                        });
-                        //clear text areas
-                        $("#username").val('');
-                        $("#email").val('');
-                        $("#tel").val('');
-                        $("#notes").val('');
-                        for(i=0; i<$scope.courseRegList.length; i++)
-                        checkboxArray[i].checked = false;
-                        },
-                        function(error) {
-                        swal("נכשל");
-                        }
+                            function(response) {
+                                swal({
+                                    title: "המייל נשלח בהצלחה",
+                                    type:'success',
+                                    timer: 2000,
+                                    showConfirmButton: false,
+                                    confirmButtonText:'אוקיי'
+                                });
+                                //clear text areas
+                                $("#username").val('');
+                                $("#email").val('');
+                                $("#tel").val('');
+                                $("#notes").val('');
+                                for(i=0; i<$scope.courseRegList.length; i++)
+                                    checkboxArray[i].checked = false;
+                            },
+                            function(error) {
+                                swal({
+                                    title:'נכשל',
+                                    type: 'error',
+                                    timer:2000,
+                                    showConfirmButton: false,
+                                    confirmButtonText:'אוקיי'
+                                });
+                            }
                         );
-                   }, 2000);
+                    }, 2000);
                 });
             }
         };
@@ -106,6 +127,15 @@ angular.module('courseReg', [])
                     console.log('Get courses error.');
                 });
         };
+
+
+        $scope.showCourse = function(course) {
+            if (!course.show)
+                course.show = true;
+            else
+                course.show = false;
+        }
+
         $scope.loadCourseReg();
     }]);
 
@@ -118,4 +148,4 @@ angular.module('courseReg', [])
  type:'info',
  showCancelButton: false
  });
-* */
+ * */

@@ -11,8 +11,24 @@ angular.module('jobOffers', [])
                     console.log('Get courses error.');
                 });
         };
+
+
+
+        $scope.showJob = function(jobOffer) {
+            if (!jobOffer.show)
+                jobOffer.show = true;
+            else
+                jobOffer.show = false;
+        }
+
+
+
+
         $scope.loadCourseReg();
+        
     }]);
+
+
 
 
 
