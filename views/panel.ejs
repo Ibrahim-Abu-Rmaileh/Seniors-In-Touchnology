@@ -1,28 +1,73 @@
 <!DOCTYPE html>
 <html ng-app="Panel">
 <head>
-    <title><%= title %></title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/openSans/fontstyle.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
+
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="/javascripts/angular.min.js" type="text/javascript"></script>
     <script src="/javascripts/panelScript.js" type="text/javascript"></script>
 </head>
+
 <body ng-controller="PanelController as panel">
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
-<h3>Add new admin: </h3> <br>
-Name:  <input type="text" id="txtName" ng-model="adminObj.name" required> Email:  <input type="email" id="txtEmail" ng-model="adminObj.email" required> <br>
-<button ng-click="addAdmin()" id="cmdAdd">Add</button>
-<br><br><br>
-<h3>Edit admin list:</h3> <br>
-<div id="admins">
-    <table>
-        <tr><th>Name</th> <th>Email</th> <th>Delete</th></tr>
-        <tr ng-repeat="admin in adminsList">
-            <td>{{admin.name}}</td> <td>{{admin.email}}</td> <td> <button id="delAdmin" ng-click="delAdmin(admin)">Del</button> </td>
+
+<div class="container">
+
+    <a href="panelManagement" ><button type="button" class="btn btn-default">          חזרה לפנאל הניהול  </button></a>
+    <div class="panelTitles">    אדמינים</div>
+    <br>
+    <hr>
+
+
+
+    הוספת אדמין חדש
+    <br>
+
+
+    <table class="table" dir="rtl">
+        <tr>
+
+            <td> שם </td>
+            <td><input type="text" id="txtName" ng-model="adminObj.name" required>  </td>
+        </tr>
+
+        <tr>
+
+            <td> מייל</td>
+
+            <td>     <input type="email" id="txtEmail" ng-model="adminObj.email" required> </td>
         </tr>
     </table>
-    <a href="panelManagement" class="myButton">Back to panel</a>
+
+
+    <button type="button" class="btn-lg btn-success" ng-click="addAdmin()" id="cmdAdd"> הוספה</button>
+
+    <br><br>
+
+
+    <hr>
+    רשימת קורסים קיימים <br>
+
+
+    <table class="table" dir="rtl">
+        <tr><th>   שם</th><th>מייל</th>  <th>מחיקה</th></tr>
+        <tr ng-repeat="admin in adminsList">
+            <td>{{admin.name}}</td> <td>{{admin.email}}</td> <td> <button type="button" class="btn-xs btn-danger" ng-click="delAdmin(admin)">מחק</button></td>
+
+        </tr>
+    </table>
+
+
+
+
 </div>
+
+    </div>
 </body>
 </html>
 
