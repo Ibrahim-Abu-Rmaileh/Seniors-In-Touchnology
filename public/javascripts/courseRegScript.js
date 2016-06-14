@@ -63,11 +63,7 @@ angular.module('courseReg', [])
                     });
                     return;
                 }
-<<<<<<< HEAD
                swal({
-=======
-                swal({
->>>>>>> 7355a785299bc51ddf0e9f268f7ccb8911b6560e
                     title: 'האם אתה בטוח?',
                     text: 'לפני לחיצת כן, אנא בדוק שמילאת נכון את כל השדות',
                     type: 'warning',
@@ -88,7 +84,6 @@ angular.module('courseReg', [])
                             course:chosenCourses,
                             notes:$("#notes").val()
                         }).then(
-<<<<<<< HEAD
                         function(response) {
                         swal({
                         title: "המייל נשלח בהצלחה",
@@ -106,15 +101,14 @@ angular.module('courseReg', [])
                         checkboxArray[i].checked = false;
                         },
                         function(error) {
-                        swal({
-                            title:'נכשל',
-                            type: 'error',
-                            timer:2000,
-                            showConfirmButton: false,
-                            confirmButtonText:'אוקיי'
-                        });
-                        }
-=======
+                            swal({
+                                title: 'נכשל',
+                                type: 'error',
+                                timer: 2000,
+                                showConfirmButton: false,
+                                confirmButtonText: 'אוקיי'
+                            });
+                        },
                             function(response) {
                                 swal({
                                     title: "המייל נשלח בהצלחה",
@@ -140,7 +134,6 @@ angular.module('courseReg', [])
                                     confirmButtonText:'אוקיי'
                                 });
                             }
->>>>>>> 7355a785299bc51ddf0e9f268f7ccb8911b6560e
                         );
                     }, 2000);
                 });

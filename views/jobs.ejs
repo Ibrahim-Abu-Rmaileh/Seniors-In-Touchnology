@@ -1,55 +1,127 @@
 <!DOCTYPE html>
 <html ng-app="Jobs">
-
-<header>
-    <img src="images/logo.jpg" height="100px" style="float: left;"/>
+<head>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="/javascripts/angular.min.js" type="text/javascript"></script>
     <script src="/javascripts/jobScript.js" type="text/javascript"></script>
 
-    <h1>Seniors In Touchnology</h1>
-</header>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/openSans/fontstyle.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
 
 
-<main>
+    <title>עריכת עבודות </title>
+
+</head>
 
 
-    <div ng-controller="JobsController as jobs">
-        <h3>Add new Job offer: </h3> <br>
-
-        title: <input type="text" name="title" id="titleId" ng-model="jobObj.title"><br>
-        location: <input type="text" name="location" id="locationId" ng-model="jobObj.location"><br>
-        description: <input type="text" name="description" id="descriptionId" ng-model="jobObj.description"><br>
-
-        <button id="acc" ng-click="addJob()" >SEND</button>
-
-            <table>
-                <tr><th>title</th><th>location</th> <th>descriptipon</th> <th>Delete</th><th>id</th> <th>Edit</th> </tr>
-                <tr ng-repeat="offer in jobsList">
-                    <td>{{offer.title}}</td> <td>{{offer.location}}</td> <td>{{offer.description}}</td> <td> <button id="elButton" ng-click="delObj(offer)" >DEL</button></td><td></td>
-                   <td> <button id="updButt" ng-click="showUpdateJob(offer)" >Update</button></td>
-                </tr>
-            </table>
-
-        <div id="edit"  ng-show="updObj.show">
-
-            title: <input type="text" name="title" id="titleId" ng-model="updObj.title"><br>
-            location: <input type="text" name="location" id="locationId" ng-model="updObj.location"><br>
-            description: <input type="text" name="description" id="descriptionId" ng-model="updObj.description"><br>
-
-            <button id="upBut1" ng-click="updateJob()" >UpdateObject</button>
+<body ng-controller="JobsController as jobs" dir="rtl">
 
 
-        </div>
-        <a href="panelManagement" class="myButton">Back to panel</a>
+<div class="container">
+
+    <a href="panelManagement" ><button type="button" class="btn btn-default">          חזרה לממשק הניהול  </button></a>
+
+
+    <div class="panelTitles">עבודות</div>
+    <br>
+    <hr>
+
+
+    הוספת עבודה חדשה
+    <br>
+
+
+    <table class="table" dir="rtl">
+        <tr>
+
+            <td> שם העבודה</td>
+            <td><input type="text" name="title" id="titleId" ng-model="jobObj.title"> </td>
+        </tr>
+
+        <tr>
+
+            <td> מיקום</td>
+
+            <td><input type="text" name="location" id="locationId" ng-model="jobObj.location"> </td>
+        </tr>
+
+
+        <tr>
+
+            <td> תיאור</td>
+
+
+            <td>            <textarea type="text" id="txtDetails" ng-model="jobObj.description"></textarea> </td>
+
+
+        </tr>
+
+
+    </table>
+
+    <button type="button" class="btn-lg btn-success" id="acc" ng-click="addJob()" >הוספה</button>
+
+    <br><br>
+
+<hr>
+
+    רשימת עבודות קיימות <br>
+
+
+    <table class="table" dir="rtl">
+        <tr><th>   שם העבודה</th><th> מיקום</th> <th> תיאור</th><th>עדכון</th> <th>מחיקה</th></tr>
+        <tr ng-repeat="job in jobsList">
+            <td>{{job.title}}</td> <td>{{job.location}}</td><td>{{job.description}}</td>  <td>    <a href="#upJob"><button type="button" class="btn-xs btn-info" ng-click="showUpdateJob(job)">עדכן</button></a></td><td>    <button type="button" class="btn-xs btn-danger" id="delCourse" ng-click="delObj(job)">מחק</button> </td>
+
+        </tr>
+    </table>
+
+
+    <div  id="upJob"ng-show="updObj.show">
+
+        <br><br>           עדכון
+
+        <table class="table" dir="rtl">
+        <tr>
+
+            <td> שם העבודה</td>
+            <td><input type="text" name="title" id="titleId" ng-model="updObj.title"> </td>
+        </tr>
+
+        <tr>
+
+            <td> מיקום</td>
+
+            <td><input type="text" name="location" id="locationId" ng-model="updObj.location"> </td>
+        </tr>
+
+
+        <tr>
+
+            <td> תיאור</td>
+
+
+            <td>            <textarea type="text" id="txtDetails" ng-model="updObj.description"></textarea> </td>
+
+
+        </tr>
+
+        </table>
+
+
+        <button type="button" class="btn-lg btn-success" ng-click="updateJob()" id="cmdUpd" >        עדכן</button>
+    </div>
 
 
 
     </div>
-</main>
-<footer dir="rtl">
-    טלפון: 1800-100-947 | אימייל: office@mtova.org.il | כתובת: בית יד שרה, שדרות הרצל 124 ירושלים
-</footer>
+
+</body>
 
 
 </html>
