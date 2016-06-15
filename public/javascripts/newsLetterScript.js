@@ -5,17 +5,18 @@ angular.module('newsLetter', [])
         console.log($scope.access);
         if(!$scope.access)
             $window.location.href = "../";
-
         $scope.newsLetterObj = {};
         $scope.newsLetterObj.title = "";
-        $scope.newsLetterObj.description = "";
+        $scope.newsLetterObj.link= "";
+        $scope.newsLetterObj.show= false;
+
 
         $scope.newsLetterList;
         $scope.delObject;
 
         $scope.newsLetterupdObj={ };
         $scope.newsLetterupdObj.title = "";
-        $scope.newsLetterupdObj.description = "";
+        $scope.newsLetterupdObj.link = "";
         $scope.newsLetterupdObj.id = "0";
         $scope.newsLetterupdObj.show = false;
 
@@ -23,8 +24,7 @@ angular.module('newsLetter', [])
 
             $scope.newsLetterupdObj.show = true;
             $scope.newsLetterupdObj.title = newsL.title;
-            $scope.newsLetterupdObj.location=newsL.location;
-            $scope.newsLetterupdObj.description =newsL.description;
+            $scope.newsLetterupdObj.link =newsL.link;
             $scope.newsLetterupdObj.id=newsL._id;
         };
 
@@ -39,7 +39,7 @@ angular.module('newsLetter', [])
 
                 })
                 .catch(function(err) {
-                    console.log('job  error updated.');
+                    console.log('newsLetter  error updated.');
                 });
         };
 
@@ -50,7 +50,7 @@ angular.module('newsLetter', [])
             $http.post('/postNewsLetter', $scope.newsLetterObj)
                 .success(function(res) {
                     $scope.newsLetterObj.title = "";
-                    $scope.newsLetterObj.description = "";
+                    $scope.newsLetterObj.link = "";
                     console.log('newsletter added successfully.');
                     $scope.loadPanel();
                 })
@@ -82,6 +82,7 @@ angular.module('newsLetter', [])
                     console.log('Get Jobs error.');
                 });
         };
+
 
         $scope.loadPanel();
     }]);

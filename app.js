@@ -82,7 +82,7 @@ var Job = mongoose.model('Jobs', jobsSchame);
 //schema&modles for NewsLetter!
 var newsletterSchame = new Schema({
     title: String ,
-    description: String
+    link: String
 });
 var NewsLetter = mongoose.model('NewsLetter', newsletterSchame);
 
@@ -187,7 +187,7 @@ app.post('/postNewsLetter',function (req, res) {
 
     new NewsLetter({
         title: req.body.title,
-        description: req.body.description
+        link: req.body.link
 
     }).save(function(err){
         if(err)
@@ -223,7 +223,7 @@ app.post('/updateNewsLetter', function (req, res) {
     console.log(req.body);
     new NewsLetter({
         title: req.body.title,
-        description: req.body.description
+        link: req.body.link
 
     }).save(function(err){
         if(err)

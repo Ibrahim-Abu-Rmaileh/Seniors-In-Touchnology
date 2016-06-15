@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="nlMain">
+
 <head>
 
 
@@ -21,12 +22,12 @@
     <script src="/javascripts/ui-bootstrap-tpls-1.2.4.js"></script>
 
 
-    <script src="/javascripts/newsLetterScript.js"></script>
+    <script src="/javascripts/newsLetterMain.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 
 </head>
-<body dir="rtl" >
+<body  ng-controller="nlMainController as new" dir="rtl">
 
 
 <header class="sidebar">
@@ -68,7 +69,16 @@
     </div>
     <div class="article-container">
 
-        בקרוב
+        <div class="squareDiv" ng-repeat="nl in newsLetterList" ng-click="showNewsLetter(nl)">
+            <img src="/images/arrowDown.png" class="arrowDown">
+            <div class="titleSiz">{{nl.title}}</div>
+
+            <div ng-show="nl.show">
+                <a href="{{nl.link}}" target="_blank"> לחצו כאן</a>
+            </div>
+
+        </div>
+
 
     </div>
 

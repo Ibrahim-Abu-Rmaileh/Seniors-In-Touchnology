@@ -33,37 +33,67 @@
 
 
 
-    בבניה!
-    <!--
 
     הוספת ניוזלטר חדש
     <br>
-            <h3>Add new NewsLetter: </h3> <br>
-
-            title: <input type="text" name="title" id="titleId" ng-model="newsLetterObj.title"><br>
-            description: <input type="text" name="description" id="descriptionId" ng-model="newsLetterObj.description"><br>
-
-            <button id="acc" ng-click="addNewsLetter()" >SEND</button>
-
-            <table>
-                <tr><th>title</th> <th>descriptipon</th> <th>Delete</th><th>id</th> <th>Edit</th> </tr>
-                <tr ng-repeat="nl in newsLetterList">
-                    <td>{{nl.title}}</td> <td>{{nl.description}}</td> <td> <button id="elButton" ng-click="delObj(nl)">DEL</button></td><td></td>
-                    <td> <button id="updButt" ng-click="showUpdateNewsLetter(nl)" >Update</button></td>
-                </tr>
-            </table>
-
-            <div id="edit"  ng-show="newsLetterupdObj.show">
-
-                title: <input type="text" name="title" id="titleId" ng-model="newsLetterupdObj.title"><br>
-                description: <input type="text" name="description" id="descriptionId" ng-model="newsLetterupdObj.description"><br>
-
-                <button id="upBut1" ng-click="updateNewsLetter()" >UpdateObject</button>
-
-            </div>
 
 
-        </div>-->
+    <table class="table" dir="rtl">
+        <tr>
+
+            <td> שם</td>
+            <td><input type="text" name="title" id="titleId" ng-model="newsLetterObj.title"></td>
+        </tr>
+
+        <tr>
+
+            <td> קישור</td>
+
+            <td>  <input type="text" name="description" id="linkId" ng-model="newsLetterObj.link"></textarea> </td>
+        </tr>
+    </table>
+
+    <button type="button" class="btn-lg btn-success"  ng-click="addNewsLetter()"  id="cmdAdd" >הוספה</button>
+
+
+    <hr>
+    רשימת ניוזליטרים קיימים <br>
+
+
+    <table class="table" dir="rtl">
+        <tr><th>   שם</th><th> קישור</th> <th>עדכון</th> <th>מחיקה</th></tr>
+        <tr ng-repeat="nl in newsLetterList">
+            <td>{{nl.title}}</td> <td>{{nl.link}}</td> <td>    <a href="#updNews"><button type="button" class="btn-xs btn-info" ng-click="showUpdateNewsLetter(nl)">עדכן</button></a></td><td>    <button type="button" class="btn-xs btn-danger" id="delNl" ng-click="delObj(nl)">מחק</button> </td>
+
+        </tr>
+    </table>
+
+
+
+    <div  id="updNews" ng-show="newsLetterupdObj.show" >
+
+        <br><br>           עדכון
+        <table class="table" dir="rtl">
+
+
+            <tr>
+
+                <td> שם</td>
+                <td><input type="text" id="titleId" ng-model="newsLetterupdObj.title">  </td>
+            </tr>
+
+            <tr>
+
+                <td> לינק</td>
+
+                <td> <input type="text" name="description" id="linkId" ng-model="newsLetterupdObj.link"></td>
+        </table>
+
+        <button type="button" class="btn-lg btn-success" ng-click="updateNewsLetter()" id="cmdUpd" >        עדכן</button>
+    </div>
+
+
+
 
     </div>
     </body>

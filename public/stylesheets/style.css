@@ -602,3 +602,10 @@ h2, h3, h4 {
   font-size: 80px;
   font-weight: bold;
 }
+
+
+
+a:link    {color:black; background-color:transparent; text-decoration:none}
+a:visited {color:saddlebrown; background-color:transparent; text-decoration:none}
+a:hover   {color:whitesmoke; background-color:transparent; text-decoration:underline}
+a:active  {color:yellow; background-color:transparent; text-decoration:underline}
