@@ -19,7 +19,7 @@ Please visit our wiki for furthur project info:
 
 ### [User Manual](../../wiki/user-manual)
 
-### [Developer Manual] (https://github.com/afek590/Seniors-In-Touchnology/wiki/0-ZFR#developer-documentation)
+### [Developer Manual] (https://github.com/afek590/Seniors-In-Touchnology/wiki/Developer-Documentation)
 
 ### [Team Page](../../wiki/team)
 
