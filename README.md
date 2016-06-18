@@ -6,7 +6,6 @@ As well as developing contacts with graduates and expanding sphere of influence 
 ![project logo (this one is taken from basecamp)](http://win-site.co.il/wp-content/uploads/2014/10/mhsava_tova2.jpg)
 
 ## Please visit our [live application](http://seniorsintouchnology.azurewebsites.net/)
-- Alright, currently only a landing page...
 
 [![Join the chat at https://gitter.im/afek590/Seniors-In-Touchnology](https://badges.gitter.im/afek590/Seniors-In-Touchnology.svg)](https://gitter.im/afek590/Seniors-In-Touchnology?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
